@@ -1,0 +1,27 @@
+#include "IBoardGame.h"
+
+class TicTacToeGame : private IBoardGame {
+
+    public:
+        void assignPlayer(IPlayer* player);
+
+        int checkEnd();
+
+        void createBoard(int size);
+
+        void endGame();
+
+        void endTurn();
+
+        bool modifyTile(int x, int y, char letter);
+
+        std::vector<int> getBoard();
+
+        int getCurrentPlayerNum();
+
+        std::vector<IPlayer*> getPlayers();
+
+        void setBoard(std::vector<int> board);
+
+        void setPlayers(std::vector<IPlayer*> player);
+};
