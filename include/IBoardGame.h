@@ -38,6 +38,8 @@ public:
 
     virtual int getCurrentPlayerNum() = 0;
 
+    virtual int getTurn() = 0;
+
     virtual std::vector<IPlayer*> getPlayers() = 0;
 
     virtual void setBoard(std::vector<int> board) = 0;
