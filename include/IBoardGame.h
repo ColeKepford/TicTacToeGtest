@@ -4,9 +4,9 @@
  * @brief Interface for a 2D board game class.
  * @version 0.1
  * @date 2022-11-13
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
 #ifndef INCLUDE_IBOARDGAME_H_
@@ -16,10 +16,10 @@
 #include <vector>
 
 class IBoardGame {
- public:
+public:
     virtual std::vector<int> createBoard(int size) = 0; // vector data type?
 
-    virtual bool modifyTile(int x, int y) = 0;
+    virtual bool modifyTile(int x, int y, char letter) = 0;
 
     virtual void assignPlayer(IPlayer* player) = 0; // proper parameter?
 
@@ -28,7 +28,5 @@ class IBoardGame {
     virtual void endTurn() = 0;
 
     virtual void endGame() = 0;
-
-    virtual ~IBoardGame(); // curly braces?
 };
 #endif  // INCLUDE_IBOARDGAME_H_
