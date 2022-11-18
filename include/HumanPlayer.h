@@ -1,7 +1,7 @@
 #ifndef INCLUDE_HUMANPLAYER_H_
 #define INCLUDE_HUMANPLAYER_H_
 #include "IPlayer.h"
-
+#include "IBoardGame.h"
 class HumanPlayer : private IPlayer {
     public:
 

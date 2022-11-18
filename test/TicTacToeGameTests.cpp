@@ -35,7 +35,6 @@ TEST_F(GameTests, testAssignPlayerNull) {
         game.assignPlayer(human);
     }
     catch (std::invalid_argument& e) {
-        std::cerr << e.what() << std::endl;
         EXPECT_EQ("Player is null.", e.what());
     }
 }
@@ -81,19 +80,36 @@ TEST_F(GameTests, TestCreateBoardSize3) {
     EXPECT_EQ(9, game.getBoard().size());
 }
 
-TEST_F(GameTests, TestCreateBoardSize100) {
+TEST_F(GameTests, TestCreateBoardSize10) {
     game.createBoard(10);
     EXPECT_EQ(100, game.getBoard().size());
 }
 
+TEST_F(GameTests, TestCreateBoardSize100) {
+    try {
+        game.createBoard(100);
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_EQ("Invalid size.", e.what());
+    }
+}
+
 TEST_F(GameTests, TestCreateBoardSizeZero) {
-    game.createBoard(0);
-    EXPECT_EQ(0, game.getBoard().size());
+    try {
+        game.createBoard(0);
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_EQ("Invalid size.", e.what());
+    }
 }
 
 TEST_F(GameTests, TestCreateBoardSizeNegative) {
-    game.createBoard(-1);
-    EXPECT_EQ(0, game.getBoard().size());
+    try {
+        game.createBoard(-1);
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_EQ("Invalid size.", e.what());
+    }
 }
 
 TEST_F(GameTests, TestModifyTileValid) {

@@ -1,7 +1,9 @@
 #ifndef INCLUDE_COMPUTERPLAYER_H_
 #define INCLUDE_COMPUTERLAYER_H_
 #include "IPlayer.h"
+#include "IBoardGame.h"
 #include <string>
+
 class ComputerPlayer : private IPlayer {
 public:
     ComputerPlayer(char letter, int playerNum, std::string type, std::string difficulty);
