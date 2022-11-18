@@ -1,3 +1,4 @@
+#pragma once
 #ifndef INCLUDE_TICTACTOEGAME_H_
 #define INCLUDE_TICTACTOEGAME_H_
 #include "IBoardGame.h"

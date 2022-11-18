@@ -1,4 +1,6 @@
 #pragma once
+#ifndef INCLUDE_MOCKCOMPUTERPLAYER_H_
+#define INCLUDE_MOCKCOMPUTERLAYER_H_
 #include"../include/IPlayer.h"
 #include"../include/IBoardGame.h"
 class MockComputerPlayer : public IPlayer {
@@ -26,3 +28,4 @@ class MockComputerPlayer : public IPlayer {
 
     }
 };
+#endif

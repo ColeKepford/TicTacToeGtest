@@ -1,3 +1,4 @@
+#pragma once
 /**
  * @file IBoardGame.h
  * @author Adam Schlinker (adam.schlinker@uleth.ca)
@@ -14,6 +15,8 @@
 
 #include "IPlayer.h"
 #include <vector>
+//forward declaration
+class IPlayer;
 
 class IBoardGame {
 public:
@@ -22,11 +25,11 @@ public:
     int turn;
     int currentPlayerNum;
     
-    virtual void assignPlayer(IPlayer* player) = 0; // proper parameter?
+    virtual void assignPlayer(IPlayer* player) = 0; 
 
     virtual int checkEnd() = 0;
 
-    virtual void createBoard(int size) = 0; // vector data type?
+    virtual void createBoard(int size) = 0; 
 
     virtual void endGame() = 0;
 
