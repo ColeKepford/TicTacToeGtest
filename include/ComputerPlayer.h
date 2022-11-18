@@ -6,22 +6,22 @@
 #include <string>
 
 class ComputerPlayer : private IPlayer {
-public:
-    ComputerPlayer(char letter, int playerNum, std::string type, std::string difficulty);
+    public:
+        ComputerPlayer(char letter, int playerNum, std::string type, std::string difficulty);
 
-    void clickTile(int x, int y, char letter, IBoardGame* game);
+        void clickTile(int x, int y, char letter, IBoardGame* game);
 
-    std::string getDifficulty();
+        std::string getDifficulty();
 
-    char getLetter();
+        char getLetter();
 
-    int getPlayerNum();
+        int getPlayerNum();
 
-    std::string getType();
+        std::string getType();
 
-    void setLetter(char letter);
+        void setLetter(char letter);
 
-    void setPlayerNum();
+        void setPlayerNum();
 
 private:
     std::string difficulty;
