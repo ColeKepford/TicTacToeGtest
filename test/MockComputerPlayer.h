@@ -4,28 +4,35 @@
 #include"../include/IPlayer.h"
 #include"../include/IBoardGame.h"
 class MockComputerPlayer : public IPlayer {
-    void clickTile(int x, int y, char letter, IBoardGame* game) {
+    public:
+        MockComputerPlayer() {
+        IPlayer:letter = 'O';
+        IPLayer:playerNum = 2;
+        IPlayer:type = "computer";
+        }
 
-    }
+        void clickTile(int x, int y, char letter, IBoardGame* game) {
 
-    char getLetter() {
+        }
 
-     }
+        char getLetter() {
 
-    int getPlayerNum() {
+         }
 
-    }
+        int getPlayerNum() {
 
-    std::string getType() {
+        }
 
-    }
+        std::string getType() {
 
-    void setLetter(char letter) {
+        }
 
-    }
+        void setLetter(char letter) {
 
-    void setPlayerNum() {
+        }
 
-    }
+        void setPlayerNum() {
+
+        }
 };
 #endif

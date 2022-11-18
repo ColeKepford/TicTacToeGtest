@@ -11,8 +11,8 @@ class GameTests :public::testing::Test {
 
         void SetUp() override {
             game = TicTacToeGame();
-            human = &MockHumanPlayer();
             computer = &MockComputerPlayer();
+            human = &MockHumanPlayer();
         }
 
         void TearDown() override {
@@ -78,12 +78,24 @@ TEST_F(GameTests, testCheckEndOverWithDraw) {
 
 TEST_F(GameTests, TestCreateBoardSize3) {
     game.createBoard(3);
-    EXPECT_EQ(9, game.getBoard().size());
+    std::vector<char> board = game.getBoard();
+    EXPECT_EQ(9, board.size());
+    char letter;
+    for (int i = 0; i < board.size(); i++) {
+        for (int j = 0; j < board.size(); j++) {
+            letter = board[i, j];
+            EXPECT_EQ('N', letter);
+        }
+    }
 }
 
-TEST_F(GameTests, TestCreateBoardSize10) {
-    game.createBoard(10);
-    EXPECT_EQ(100, game.getBoard().size());
+TEST_F(GameTests, TestCreateBoardSize2) {
+    try {
+        game.createBoard(2);
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_EQ("Invalid size.", e.what());
+    }
 }
 
 TEST_F(GameTests, TestCreateBoardSize100) {
@@ -146,11 +158,68 @@ TEST_F(GameTests, TestEndTurn3) {
 
 TEST_F(GameTests, TestModifyTileValid) {
     try {
-
+        game.modifyTile(1, 1, 'X');
+        char X = game.getBoard()[1, 1];
+        EXPECT_EQ('X', X);
     }
     catch (std::invalid_argument& e) {
 
     }
+}
 
+TEST_F(GameTests, TestModifyTileValid2) {
+    try {
+        game.modifyTile(2, 2, 'O');
+        char O = game.getBoard()[1, 1];
+        EXPECT_EQ('O', O);
+    }
+    catch (std::invalid_argument& e) {
+
+    }
+}
+
+TEST_F(GameTests, TestModifyTileNegativeX) {
+    try {
+        game.modifyTile(-1, 2, 'O');
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_EQ("Invalid coordinate.", e.what());
+    }
+}
+
+TEST_F(GameTests, TestModifyTileNegativeY) {
+    try {
+        game.modifyTile(2, -1, 'O');
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_EQ("Invalid coordinate.", e.what());
+    }
+}
+
+TEST_F(GameTests, TestModifyTileTooLargeX) {
+    try {
+        game.modifyTile(5, 2, 'O');
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_EQ("Invalid coordinate.", e.what());
+    }
+}
+
+TEST_F(GameTests, TestModifyTileTooLargeY) {
+    try {
+        game.modifyTile(2, 5, 'O');
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_EQ("Invalid coordinate.", e.what());
+    }
+}
+
+TEST_F(GameTests, TestModifyTileInvalidChar) {
+    try {
+        game.modifyTile(2, 5, 'J');
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_EQ("Invalid character.", e.what());
+    }
 }
 
