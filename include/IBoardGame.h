@@ -21,7 +21,7 @@ public:
     std::vector<IPlayer*> players;
     int turn;
     int currentPlayerNum;
-
+    
     virtual void assignPlayer(IPlayer* player) = 0; // proper parameter?
 
     virtual int checkEnd() = 0;

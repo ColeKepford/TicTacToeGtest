@@ -7,7 +7,7 @@ class IPlayer {
         int playerNum;
         std::string type;
 
-        virtual void clickTile(int x, int y, char letter) = 0;
+        virtual void clickTile(int x, int y, char letter, IBoardGame* game) = 0;
 
         virtual char getLetter() = 0;
 

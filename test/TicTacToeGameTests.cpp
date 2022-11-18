@@ -1,19 +1,26 @@
 #include "pch.h"
 #include "../include/TicTacToeGame.h"
+#include"../include/HumanPlayer.h"
+#include"../include/ComputerPlayer.h"
 
 class GameTests :public::testing::Test {
     protected:
         TicTacToeGame game;
+        HumanPlayer human;
+        ComputerPlayer computer;
 
         void SetUp() override {
             game = TicTacToeGame();
+            human = 
         }
 
         void TearDown() override {
 
         }
 };
-
+TEST_F(GameTests, testAssignPlayerNotNull) {
+    game.assignPlayer()
+}
 TEST_F(GameTests, TestCreateBoardSize3) {
     game.createBoard(3);
     EXPECT_EQ(9, game.getBoard().size());

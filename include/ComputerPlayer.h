@@ -4,7 +4,9 @@
 #include <string>
 class ComputerPlayer : private IPlayer {
 public:
-    void clickTile(int x, int y, char letter);
+    ComputerPlayer(char letter, int playerNum, std::string type, std::string difficulty);
+
+    void clickTile(int x, int y, char letter, IBoardGame* game);
 
     std::string getDifficulty();
 
