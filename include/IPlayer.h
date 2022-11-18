@@ -1,7 +1,7 @@
 /**
  * @file IBoardGame.h
  * @author Cole Kepford (cole.kepford@uleth.ca)
- * @brief Interface for a 2D board game class.
+ * @brief Interface for a player class.
  * @version 0.1
  * @date 2022-11-17
  *

@@ -16,17 +16,19 @@
 #include <vector>
 
 class IBoardGame {
-public:
-    virtual std::vector<int> createBoard(int size) = 0; // vector data type?
+  public:
+    virtual std::vector<char> createBoard(int size) = 0;
 
     virtual bool modifyTile(int x, int y, char letter) = 0;
 
-    virtual void assignPlayer(IPlayer* player) = 0; // proper parameter?
+    virtual void assignPlayer(IPlayer* player) = 0;
 
     virtual int checkEnd() = 0;
 
     virtual void endTurn() = 0;
 
     virtual void endGame() = 0;
+
+    // destructor?
 };
 #endif  // INCLUDE_IBOARDGAME_H_
