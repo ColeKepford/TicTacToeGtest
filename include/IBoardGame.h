@@ -1,3 +1,4 @@
+#pragma once
 /**
  * @file IBoardGame.h
  * @author Adam Schlinker (adam.schlinker@uleth.ca)
@@ -14,21 +15,38 @@
 
 #include "IPlayer.h"
 #include <vector>
+//forward declaration
+class IPlayer;
 
 class IBoardGame {
-  public:
-    virtual std::vector<char> createBoard(int size) = 0;
-
-    virtual bool modifyTile(int x, int y, char letter) = 0;
-
-    virtual void assignPlayer(IPlayer* player) = 0;
+public:
+    std::vector<int> board;
+    std::vector<IPlayer*> players;
+    int turn;
+    int currentPlayerNum;
+    
+    virtual void assignPlayer(IPlayer* player) = 0; 
 
     virtual int checkEnd() = 0;
 
-    virtual void endTurn() = 0;
+    virtual void createBoard(int size) = 0; 
 
     virtual void endGame() = 0;
 
-    // destructor?
+    virtual void endTurn() = 0;
+
+    virtual bool modifyTile(int x, int y, char letter) = 0;
+
+    virtual std::vector<char> getBoard() = 0;
+
+    virtual int getCurrentPlayerNum() = 0;
+
+    virtual int getTurn() = 0;
+
+    virtual std::vector<IPlayer*> getPlayers() = 0;
+
+    virtual void setBoard(std::vector<int> board) = 0;
+
+    virtual void setPlayers(std::vector<IPlayer*> player) = 0;
 };
-#endif  // INCLUDE_IBOARDGAME_H_
+#endif

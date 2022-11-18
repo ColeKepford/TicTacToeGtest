@@ -1,22 +1,28 @@
-/**
- * @file IBoardGame.h
- * @author Cole Kepford (cole.kepford@uleth.ca)
- * @brief Interface for a player class.
- * @version 0.1
- * @date 2022-11-17
- *
- * @copyright Copyright (c) 2022
- *
- */
+#pragma once
 #ifndef INCLUDE_IPLAYER_H_
 #define INCLUDE_IPLAYER_H_
+#include <string>
+#include "IBoardGame.h"
+
+//forward declaration
+class IBoardGame;
 
 class IPlayer {
     public:
         char letter;
         int playerNum;
-        enum type;
+        std::string type;
 
-        virtual void clickTile(int x, int y, char letter) = 0;
+        virtual void clickTile(int x, int y, char letter, IBoardGame *game) = 0;
+
+        virtual char getLetter() = 0;
+
+        virtual int getPlayerNum() = 0;
+
+        virtual std::string getType() = 0;
+
+        virtual void setLetter(char letter) = 0;
+
+        virtual void setPlayerNum() = 0;
 };
-#endif  // INCLUDE_IPLAYER_H_
+#endif

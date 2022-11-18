@@ -1,1 +1,6 @@
-
+.vs
+x64
+packages/
+*.vcxproj*
+*.vcxproj.
+*.sln
