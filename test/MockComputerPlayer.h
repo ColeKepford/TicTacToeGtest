@@ -26,13 +26,5 @@ class MockComputerPlayer : public IPlayer {
         std::string getType() {
 
         }
-
-        void setLetter(char letter) {
-
-        }
-
-        void setPlayerNum() {
-
-        }
 };
 #endif

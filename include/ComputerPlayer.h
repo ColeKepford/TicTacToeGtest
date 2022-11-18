@@ -11,6 +11,8 @@ class ComputerPlayer : private IPlayer {
 
         void clickTile(int x, int y, char letter, IBoardGame* game);
 
+        std::pair<int, int> generateMove(IBoardGame* game);
+
         std::string getDifficulty();
 
         char getLetter();
@@ -18,11 +20,6 @@ class ComputerPlayer : private IPlayer {
         int getPlayerNum();
 
         std::string getType();
-
-        void setLetter(char letter);
-
-        void setPlayerNum();
-
 private:
     std::string difficulty;
 };

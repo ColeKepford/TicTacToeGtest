@@ -15,9 +15,5 @@ class HumanPlayer : private IPlayer {
         int getPlayerNum();
 
         std::string getType();
-
-        void setLetter(char letter);
-
-        void setPlayerNum();
 };
 #endif

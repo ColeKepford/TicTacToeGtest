@@ -78,7 +78,7 @@ TEST_F(GameTests, testCheckEndOverWithDraw) {
 
 TEST_F(GameTests, TestCreateBoardSize3) {
     game.createBoard(3);
-    std::vector<char> board = game.getBoard();
+    std::vector<char, char> board = game.getBoard();
     EXPECT_EQ(9, board.size());
     char letter;
     for (int i = 0; i < board.size(); i++) {

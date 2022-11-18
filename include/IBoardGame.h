@@ -37,7 +37,7 @@ public:
 
     virtual bool modifyTile(int x, int y, char letter) = 0;
 
-    virtual std::vector<char> getBoard() = 0;
+    virtual std::vector<char, char> getBoard() = 0;
 
     virtual int getCurrentPlayerNum() = 0;
 

@@ -18,7 +18,7 @@ class TicTacToeGame : private IBoardGame {
 
         bool modifyTile(int x, int y, char letter);
 
-        std::vector<char> getBoard();
+        std::vector<char, char> getBoard();
 
         int getCurrentPlayerNum();
 

@@ -13,7 +13,6 @@ class MockHumanPlayer : public IPlayer {
             IPlayer:type = "human";
         }
         
-        
         void clickTile(int x, int y, char letter, IBoardGame* game) {
             if (clickCounter == 0) {
                 game->modifyTile(1, 1, letter);
@@ -37,14 +36,6 @@ class MockHumanPlayer : public IPlayer {
         }
 
         std::string getType() {
-
-        }
-
-        void setLetter(char letter) {
-
-        }
-
-        void setPlayerNum() {
 
         }
 };

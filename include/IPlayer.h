@@ -20,9 +20,5 @@ class IPlayer {
         virtual int getPlayerNum() = 0;
 
         virtual std::string getType() = 0;
-
-        virtual void setLetter(char letter) = 0;
-
-        virtual void setPlayerNum() = 0;
 };
 #endif
