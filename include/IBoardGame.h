@@ -1,4 +1,3 @@
-#pragma once
 /**
  * @file IBoardGame.h
  * @author Adam Schlinker (adam.schlinker@uleth.ca)
@@ -10,16 +9,15 @@
  *
  */
 
-#ifndef INCLUDE_IBOARDGAME_H_
-#define INCLUDE_IBOARDGAME_H_
-
+#pragma once
 #include "IPlayer.h"
 #include <vector>
-//forward declaration
+
+// forward declaration
 class IPlayer;
 
 class IBoardGame {
-public:
+  public:
     std::vector<int> board;
     std::vector<IPlayer*> players;
     int turn;
@@ -49,4 +47,3 @@ public:
 
     virtual void setPlayers(std::vector<IPlayer*> player) = 0;
 };
-#endif
