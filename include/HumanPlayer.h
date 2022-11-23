@@ -2,7 +2,7 @@
 #include "IPlayer.h"
 #include "IBoardGame.h"
 
-class HumanPlayer : private IPlayer {
+class HumanPlayer : public IPlayer {
   public:
     HumanPlayer(char letter, int playerNum, std::string type);
 
@@ -16,5 +16,5 @@ class HumanPlayer : private IPlayer {
 
     void setLetter(char letter);
 
-    void setPlayerNum();
+    void setPlayerNum(int num);
 };

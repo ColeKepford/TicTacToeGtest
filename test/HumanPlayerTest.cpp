@@ -12,11 +12,12 @@ class PlayerTests :public::testing::Test {
         string validType[2] = {"Human", "Computer"};
 
     void SetUp() override {
-        player = new MockHumanPlayer();
+        player = new HumanPlayer();
     }
 
     void TearDown() override {
         player = NULL;
+        delete player;
     }
 }
 
