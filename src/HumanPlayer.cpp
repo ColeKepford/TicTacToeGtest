@@ -11,6 +11,8 @@
 
 #include "HumanPlayer.h"
 
+HumanPlayer::HumanPlayer() {};
+
 HumanPlayer::HumanPlayer(char letter, int playerNum, std::string type) {
     this->letter = letter;
     this->playerNum = playerNum;
