@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "../include/TicTacToeGame.h"
-#include "HumanPlayer.h"
+#include "../include/HumanPlayer.h"
 #include <string>
 
 class PlayerTests :public::testing::Test {
@@ -8,7 +8,7 @@ class PlayerTests :public::testing::Test {
         HumanPlayer player;
         char validLetters[4] = {'X', 'x', 'O', 'o'};
         int validPlayerNum[2] = {1, 2};
-        string validType[2] = {"Human", "Computer"};
+        std::string validType[2] = {"Human", "Computer"};
 
     void SetUp() override {
         player = new HumanPlayer();
