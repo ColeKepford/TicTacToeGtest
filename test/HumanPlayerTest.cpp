@@ -1,18 +1,18 @@
 #include "pch.h"
 #include "../include/TicTacToeGame.h"
-#include "MockHumanPlayer.h"
+#include "HumanPlayer.h"
 #include "MockComputerPlayer.h"
 #include <string>
 
 class PlayerTests :public::testing::Test {
     protected:
-        MockHumanPlayer* player;
+        HumanPlayer player;
         char validLetters[4] = {'X', 'x', 'O', 'o'};
         int validPlayerNum[2] = {1, 2};
         string validType[2] = {"Human", "Computer"};
 
     void SetUp() override {
-        player = &MockHumanPlayer;
+        player = new MockHumanPlayer();
     }
 
     void TearDown() override {
