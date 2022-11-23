@@ -21,5 +21,5 @@ class IPlayer {
 
     virtual void setLetter(char letter) = 0;
     
-    virtual void setPlayerNum() = 0;
+    virtual void setPlayerNum(int num) = 0;
 };

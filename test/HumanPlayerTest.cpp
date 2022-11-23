@@ -5,7 +5,7 @@
 
 class PlayerTests :public::testing::Test {
     protected:
-        HumanPlayer player;
+        HumanPlayer* player;
         char validLetters[4] = {'X', 'x', 'O', 'o'};
         int validPlayerNum[2] = {1, 2};
         std::string validType[2] = {"Human", "Computer"};
