@@ -21,46 +21,46 @@ class PlayerTests :public::testing::Test {
 };
 
 TEST_F(PlayerTests, testAssignLetterX) {
-    player.setLetter('X');
+    player->setLetter('X');
     EXPECT_THAT(validLetters, Contains(player->getLetter()));
 }
 
 TEST_F(PlayerTests, testAssignLetterO) {
-    player.setLetter('O');
+    player->setLetter('O');
     EXPECT_THAT(validLetters, Contains(player->getLetter()));
 }
 
 TEST_F(PlayerTests, testAssignLetterInvalid) {
-    player.setLetter('A');
+    player->setLetter('A');
     EXPECT_THAT(validLetters, Contains(player->getLetter()));
 }
 
 TEST_F(PlayerTests, testAssignLetterNULL) {
-    player.setLetter(NULL);
+    player->setLetter(NULL);
     EXPECT_THAT(validLetters, Contains(player->getLetter()));
 }
 
 TEST_F(PlayerTests, testAssignPlayerNum1) {
-    player.setPlayerNum(1);
+    player->setPlayerNum(1);
     EXPECT_THAT(validPlayerNum, Contains(player->getPlayerNum()));
 }
 
 TEST_F(PlayerTests, testAssignPlayerNum2) {
-    player.setPlayerNum(2);
+    player->setPlayerNum(2);
     EXPECT_THAT(validPlayerNum, Contains(player->getPlayerNum()));
 }
 
 TEST_F(PlayerTests, testAssignPlayerNumInvalid) {
-    player.setPlayerNum(42);
+    player->setPlayerNum(42);
     EXPECT_THAT(validPlayerNum, Contains(player->getPlayerNum()));
 }
 
 TEST_F(PlayerTests, testAssignPlayerNumNULL) {
-    player.setPlayerNum(NULL);
+    player->setPlayerNum(NULL);
     EXPECT_THAT(validPlayerNum, Contains(player->getPlayerNum()));
 }
 
 TEST_F(PlayerTests, testAssignPlayerTypeHuman) {
-    player.setType("Human");
+    player->setType("Human");
     EXPECT_THAT(validType, Contains(player->getType()));
 }
