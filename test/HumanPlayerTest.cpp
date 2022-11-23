@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "../include/TicTacToeGame.h"
 #include "HumanPlayer.h"
-#include "MockComputerPlayer.h"
 #include <string>
 
 class PlayerTests :public::testing::Test {
