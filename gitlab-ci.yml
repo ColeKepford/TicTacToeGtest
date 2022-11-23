@@ -2,7 +2,7 @@ stages:
   - build
   - test
   - quality
-  - documentation
+#  - documentation
 
 buildTests:
    stage: build
@@ -45,11 +45,11 @@ memcheckTest:
          - memcheck.xml
       expire_in: 14 days
 
-docs:
-   stage: documentation
-   script:
-      - make docs
-   artifacts:
-      paths:
-         - docs
-      expire_in: 14 days
+#docs:
+#   stage: documentation
+#   script:
+#      - make docs
+#   artifacts:
+#      paths:
+#         - docs
+#      expire_in: 14 days
