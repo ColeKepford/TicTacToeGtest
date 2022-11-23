@@ -18,7 +18,7 @@ class PlayerTests :public::testing::Test {
         player = NULL;
         delete player;
     }
-}
+};
 
 TEST_F(PlayerTests, testAssignLetterX) {
     player.setLetter('X');
