@@ -1,10 +1,9 @@
 #pragma once
-#ifndef INCLUDE_HUMANPLAYER_H_
-#define INCLUDE_HUMANPLAYER_H_
 #include "IPlayer.h"
 #include "IBoardGame.h"
 class HumanPlayer : private IPlayer {
     public:
+        HumanPlayer();
 
         HumanPlayer(char letter, int playerNum, std::string type);
 
@@ -15,9 +14,4 @@ class HumanPlayer : private IPlayer {
         int getPlayerNum();
 
         std::string getType();
-
-        void setLetter(char letter);
-
-        void setPlayerNum();
 };
-#endif

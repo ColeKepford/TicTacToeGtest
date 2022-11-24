@@ -1,6 +1,4 @@
 #pragma once
-#ifndef INCLUDE_TICTACTOEGAME_H_
-#define INCLUDE_TICTACTOEGAME_H_
 #include "IBoardGame.h"
 
 class TicTacToeGame : private IBoardGame {
@@ -18,7 +16,9 @@ class TicTacToeGame : private IBoardGame {
 
         bool modifyTile(int x, int y, char letter);
 
-        std::vector<char> getBoard();
+        std::vector<std::vector<char>> getBoard();
+
+        int getBoardSize();
 
         int getCurrentPlayerNum();
 
@@ -26,8 +26,7 @@ class TicTacToeGame : private IBoardGame {
 
         std::vector<IPlayer*> getPlayers();
 
-        void setBoard(std::vector<int> board);
+        void setBoard(std::vector<std::vector<char>> board);
 
         void setPlayers(std::vector<IPlayer*> player);
 };
-#endif

@@ -1,6 +1,4 @@
 #pragma once
-#ifndef INCLUDE_MOCKHUMANPLAYER_H_
-#define INCLUDE_MOCKHUMANLAYER_H_
 #include"../include/IPlayer.h"
 #include"../include/IBoardGame.h"
 class MockHumanPlayer : public IPlayer {
@@ -8,11 +6,10 @@ class MockHumanPlayer : public IPlayer {
         int clickCounter = 0;
         
         MockHumanPlayer() {
-            IPlayer:letter = 'X';
-            IPLayer:playerNum = 1;
-            IPlayer:type = "human";
+            this->letter = 'X';
+            this->playerNum = 1;
+            this->type = "human";
         }
-        
         
         void clickTile(int x, int y, char letter, IBoardGame* game) {
             if (clickCounter == 0) {
@@ -29,23 +26,14 @@ class MockHumanPlayer : public IPlayer {
         }
 
         char getLetter() {
-            
+            return NULL;
         }
 
         int getPlayerNum() {
-
+            return NULL;
         }
 
         std::string getType() {
-
-        }
-
-        void setLetter(char letter) {
-
-        }
-
-        void setPlayerNum() {
-
+            return NULL;
         }
 };
-#endif
