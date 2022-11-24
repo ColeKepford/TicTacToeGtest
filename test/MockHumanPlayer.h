@@ -8,9 +8,9 @@ class MockHumanPlayer : public IPlayer {
         int clickCounter = 0;
         
         MockHumanPlayer() {
-            IPlayer:letter = 'X';
-            IPLayer:playerNum = 1;
-            IPlayer:type = "human";
+            this->letter = 'X';
+            this->playerNum = 1;
+            this->type = "human";
         }
         
         void clickTile(int x, int y, char letter, IBoardGame* game) {
@@ -28,15 +28,15 @@ class MockHumanPlayer : public IPlayer {
         }
 
         char getLetter() {
-            
+            return NULL;
         }
 
         int getPlayerNum() {
-
+            return NULL;
         }
 
         std::string getType() {
-
+            return NULL;
         }
 };
 #endif

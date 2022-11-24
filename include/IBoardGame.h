@@ -10,9 +10,6 @@
  *
  */
 
-#ifndef INCLUDE_IBOARDGAME_H_
-#define INCLUDE_IBOARDGAME_H_
-
 #include "IPlayer.h"
 #include <vector>
 //forward declaration
@@ -20,7 +17,7 @@ class IPlayer;
 
 class IBoardGame {
 public:
-    std::vector<int> board;
+    std::vector<std::vector<char>> board;
     std::vector<IPlayer*> players;
     int turn;
     int currentPlayerNum;
@@ -37,7 +34,7 @@ public:
 
     virtual bool modifyTile(int x, int y, char letter) = 0;
 
-    virtual std::vector<char, char> getBoard() = 0;
+    virtual std::vector<std::vector<char>> getBoard() = 0;
 
     virtual int getCurrentPlayerNum() = 0;
 
@@ -45,8 +42,7 @@ public:
 
     virtual std::vector<IPlayer*> getPlayers() = 0;
 
-    virtual void setBoard(std::vector<int> board) = 0;
+    virtual void setBoard(std::vector <std::vector<char>> board) = 0;
 
     virtual void setPlayers(std::vector<IPlayer*> player) = 0;
 };
-#endif
