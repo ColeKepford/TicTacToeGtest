@@ -1,6 +1,4 @@
 #pragma once
-#ifndef INCLUDE_TICTACTOEGAME_H_
-#define INCLUDE_TICTACTOEGAME_H_
 #include "IBoardGame.h"
 
 class TicTacToeGame : private IBoardGame {
@@ -32,4 +30,3 @@ class TicTacToeGame : private IBoardGame {
 
         void setPlayers(std::vector<IPlayer*> player);
 };
-#endif

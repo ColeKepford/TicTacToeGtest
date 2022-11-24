@@ -1,6 +1,4 @@
 #pragma once
-#ifndef INCLUDE_COMPUTERPLAYER_H_
-#define INCLUDE_COMPUTERLAYER_H_
 #include "IPlayer.h"
 #include "IBoardGame.h"
 #include <string>
@@ -23,4 +21,3 @@ class ComputerPlayer : private IPlayer {
 private:
     std::string difficulty;
 };
-#endif

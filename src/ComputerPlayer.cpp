@@ -14,7 +14,7 @@ void ComputerPlayer::clickTile(int x, int y, char letter, IBoardGame* game) {
 }
 
 std::pair<int, int> ComputerPlayer::generateMove(IBoardGame* game) {
-    std::vector<char, char> board = game->getBoard();
+    std::vector<std::vector<char>> board = game->getBoard();
     std::vector<std::pair<int, int>> moves;
     std::vector<std::pair<int, int>>::iterator p = moves.end();
     if (this->difficulty == "easy") {
@@ -22,7 +22,7 @@ std::pair<int, int> ComputerPlayer::generateMove(IBoardGame* game) {
         for (int i = 0; i < board.size(); i++) {
             for (int j = 0; j < board.size(); j++) {
                 //add as possible move if tile is null
-                if (board[i, j] == 'N') {
+                if (board[i][j] == 'N') {
                     moves.insert(p, std::pair<int, int>(i, j));
                 }
             }

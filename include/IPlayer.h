@@ -1,6 +1,4 @@
 #pragma once
-#ifndef INCLUDE_IPLAYER_H_
-#define INCLUDE_IPLAYER_H_
 #include <string>
 #include "IBoardGame.h"
 
@@ -21,4 +19,3 @@ class IPlayer {
 
         virtual std::string getType() = 0;
 };
-#endif
