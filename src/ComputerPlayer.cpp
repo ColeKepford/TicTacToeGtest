@@ -1,11 +1,24 @@
 #include "ComputerPlayer.h"
 #include <list>
 #include <vector>
+#include <stdexcept>
 
 ComputerPlayer::ComputerPlayer(char letter, int playerNum, std::string type, std::string difficulty) {
-    this->letter = letter;
+    if (letter == 'X' || letter == 'x' || letter == 'O' || letter == 'o') {
+        this->letter = letter;
+    }
+    else {
+        throw std::invalid_argument("Invalid letter");
+    }
     this->playerNum = playerNum;
-    this->type = type;
+
+    if (type == "computer") {
+        this->type = type;
+    }
+    else {
+        throw std::invalid_argument("Invalid type");
+    }
+    
     this->difficulty = difficulty;
 }
 
