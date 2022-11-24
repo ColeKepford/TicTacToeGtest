@@ -36,6 +36,8 @@ public:
 
     virtual std::vector<std::vector<char>> getBoard() = 0;
 
+    virtual int getBoardSize() = 0;
+
     virtual int getCurrentPlayerNum() = 0;
 
     virtual int getTurn() = 0;

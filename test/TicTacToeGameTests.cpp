@@ -44,46 +44,46 @@ TEST_F(GameTests, testCheckEndNotOver) {
 }
 
 TEST_F(GameTests, testCheckEndOverWithXs) {
-    game.getBoard()[0, 1] = 'X';
-    game.getBoard()[1, 1] = 'X';
-    game.getBoard()[2, 1] = 'X';
+    game.getBoard()[0][1] = 'X';
+    game.getBoard()[1][1] = 'X';
+    game.getBoard()[2][1] = 'X';
 
     EXPECT_EQ(1, game.checkEnd());
 }
 
 TEST_F(GameTests, testCheckEndOverWithOs) {
-    game.getBoard()[0, 1] = 'O';
-    game.getBoard()[1, 1] = 'O';
-    game.getBoard()[2, 1] = 'O';
+    game.getBoard()[0][1] = 'O';
+    game.getBoard()[1][1] = 'O';
+    game.getBoard()[2][1] = 'O';
 
     EXPECT_EQ(1, game.checkEnd());
 }
 
 TEST_F(GameTests, testCheckEndOverWithDraw) {
     //Column 1
-    game.getBoard()[0, 0] = 'O';
-    game.getBoard()[1, 0] = 'O';
-    game.getBoard()[2, 0] = 'X';
+    game.getBoard()[0][0] = 'O';
+    game.getBoard()[1][0] = 'O';
+    game.getBoard()[2][0] = 'X';
     //Column2
-    game.getBoard()[0, 1] = 'X';
-    game.getBoard()[1, 1] = 'X';
-    game.getBoard()[2, 1] = 'O';
+    game.getBoard()[0][1] = 'X';
+    game.getBoard()[1][1] = 'X';
+    game.getBoard()[2][1] = 'O';
     //Column3
-    game.getBoard()[0, 2] = 'O';
-    game.getBoard()[1, 2] = 'X';
-    game.getBoard()[2, 2] = 'X';
+    game.getBoard()[0][2] = 'O';
+    game.getBoard()[1][2] = 'X';
+    game.getBoard()[2][2] = 'X';
 
     EXPECT_EQ(0, game.checkEnd());
 }
 
 TEST_F(GameTests, TestCreateBoardSize3) {
     game.createBoard(3);
-    std::vector<char, char> board = game.getBoard();
-    EXPECT_EQ(9, board.size());
+    std::vector<std::vector<char>> board = game.getBoard();
+    EXPECT_EQ(9, game.getBoardSize());
     char letter;
-    for (int i = 0; i < board.size(); i++) {
-        for (int j = 0; j < board.size(); j++) {
-            letter = board[i, j];
+    for (int i = 0; i < game.getBoardSize(); i++) {
+        for (int j = 0; j < game.getBoardSize(); j++) {
+            letter = board[i][j];
             EXPECT_EQ('N', letter);
         }
     }
@@ -159,7 +159,7 @@ TEST_F(GameTests, TestEndTurn3) {
 TEST_F(GameTests, TestModifyTileValid) {
     try {
         game.modifyTile(1, 1, 'X');
-        char X = game.getBoard()[1, 1];
+        char X = game.getBoard()[1][1];
         EXPECT_EQ('X', X);
     }
     catch (std::invalid_argument& e) {
@@ -170,7 +170,7 @@ TEST_F(GameTests, TestModifyTileValid) {
 TEST_F(GameTests, TestModifyTileValid2) {
     try {
         game.modifyTile(2, 2, 'O');
-        char O = game.getBoard()[1, 1];
+        char O = game.getBoard()[1][1];
         EXPECT_EQ('O', O);
     }
     catch (std::invalid_argument& e) {

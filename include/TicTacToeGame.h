@@ -20,6 +20,8 @@ class TicTacToeGame : private IBoardGame {
 
         std::vector<std::vector<char>> getBoard();
 
+        int getBoardSize();
+
         int getCurrentPlayerNum();
 
         int getTurn();
