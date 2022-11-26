@@ -5,21 +5,31 @@
 
 ComputerPlayer::ComputerPlayer(char letter, int playerNum, std::string type, std::string difficulty) {
     if (letter == 'X' || letter == 'x' || letter == 'O' || letter == 'o') {
-        this->letter = letter;
+        this->letter = (char)toupper(letter);
     }
     else {
+        this->letter = NULL;
         throw std::invalid_argument("Invalid letter");
     }
     this->playerNum = playerNum;
 
-    if (type == "computer") {
-        this->type = type;
+    if (type.compare("computer") == 0 || type.compare("Computer") == 0) {
+        this->type = "computer";
     }
     else {
+        this->type = "";
         throw std::invalid_argument("Invalid type");
+
     }
-    
     this->difficulty = difficulty;
+}
+
+ComputerPlayer::ComputerPlayer() {
+
+}
+
+ComputerPlayer::~ComputerPlayer() {
+
 }
 
 void ComputerPlayer::clickTile(int x, int y, char letter, IBoardGame* game) {
