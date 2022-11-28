@@ -1,4 +1,3 @@
-#pragma once
 /**
  * @file IBoardGame.h
  * @author Adam Schlinker (adam.schlinker@uleth.ca)
@@ -10,9 +9,11 @@
  *
  */
 
+#pragma once
 #include "IPlayer.h"
 #include <vector>
-//forward declaration
+
+// forward declaration
 class IPlayer;
 
 class IBoardGame {

@@ -5,13 +5,15 @@ class HumanPlayer : private IPlayer {
     public:
         HumanPlayer();
 
-        HumanPlayer(char letter, int playerNum, std::string type);
+class HumanPlayer : public IPlayer {
+  public:
+    HumanPlayer();
 
-        void clickTile(int x, int y, char letter, IBoardGame* game);
+    HumanPlayer(char letter, int playerNum, std::string type);
 
-        char getLetter();
+    void clickTile(int x, int y, char letter, IBoardGame* game);
 
-        int getPlayerNum();
+    char getLetter();
 
         std::string getType();
 };
