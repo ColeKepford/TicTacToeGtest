@@ -17,9 +17,9 @@ class ComputerPlayer : private IPlayer {
 
         std::string getDifficulty();
 
-        char getLetter();
+    char getLetter();
 
-        int getPlayerNum();
+    int getPlayerNum();
 
         std::string getType();
 private:
