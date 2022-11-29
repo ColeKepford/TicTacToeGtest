@@ -163,7 +163,7 @@ TEST_F(GameTests, TestModifyTileValid) {
         EXPECT_EQ('X', X);
     }
     catch (std::invalid_argument& e) {
-
+        std::cout << e.what();
     }
 }
 
@@ -174,7 +174,7 @@ TEST_F(GameTests, TestModifyTileValid2) {
         EXPECT_EQ('O', O);
     }
     catch (std::invalid_argument& e) {
-
+        std::cout << e.what();
     }
 }
 
@@ -222,4 +222,3 @@ TEST_F(GameTests, TestModifyTileInvalidChar) {
         EXPECT_EQ("Invalid character.", e.what());
     }
 }
-

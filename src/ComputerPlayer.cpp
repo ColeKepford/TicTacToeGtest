@@ -3,26 +3,28 @@
 #include <vector>
 #include <stdexcept>
 
-ComputerPlayer::ComputerPlayer(char letter, int playerNum, std::string type, std::string difficulty) {
-    if (letter == 'X' || letter == 'x' || letter == 'O' || letter == 'o') {
-        this->letter = letter;
+ComputerPlayer::ComputerPlayer(char iLetter, int iPlayerNum, std::string const& iDifficulty) {
+    if (iLetter == 'X' || iLetter== 'x' || iLetter == 'O' || iLetter == 'o') {
+        letter = (char)toupper(iLetter);
     }
     else {
+        letter = NULL;
         throw std::invalid_argument("Invalid letter");
     }
-    this->playerNum = playerNum;
-
-    if (type == "computer") {
-        this->type = type;
-    }
-    else {
-        throw std::invalid_argument("Invalid type");
-    }
-    
-    this->difficulty = difficulty;
+    playerNum = iPlayerNum;
+    difficulty = iDifficulty;
+    type = "computer";
 }
 
-void ComputerPlayer::clickTile(int x, int y, char letter, IBoardGame* game) {
+ComputerPlayer::ComputerPlayer() {
+    type = "computer";
+}
+
+ComputerPlayer::~ComputerPlayer() {
+    
+}
+
+void ComputerPlayer::clickTile(int x, int y, IBoardGame* game) {
     game->modifyTile(x, y, this->letter);
 }
 
@@ -30,7 +32,7 @@ std::pair<int, int> ComputerPlayer::generateMove(IBoardGame* game) {
     std::vector<std::vector<char>> board = game->getBoard();
     std::vector<std::pair<int, int>> moves;
     std::vector<std::pair<int, int>>::iterator p = moves.end();
-    if (this->difficulty == "easy") {
+    if (difficulty == "easy") {
         //Calculate possible moves
         for (int i = 0; i < board.size(); i++) {
             for (int j = 0; j < board.size(); j++) {
@@ -47,17 +49,17 @@ std::pair<int, int> ComputerPlayer::generateMove(IBoardGame* game) {
 }
 
 std::string ComputerPlayer::getDifficulty() {
-    return this->difficulty;
+    return difficulty;
 }
 
 char ComputerPlayer::getLetter() {
-    return this->letter;
+    return letter;
 }
 
 int ComputerPlayer::getPlayerNum() {
-    return this->playerNum;
+    return playerNum;
 }
 
 std::string ComputerPlayer::getType() {
-    return this->type;
+        return type;
 }

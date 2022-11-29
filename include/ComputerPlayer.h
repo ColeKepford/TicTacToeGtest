@@ -3,11 +3,15 @@
 #include "IBoardGame.h"
 #include <string>
 
-class ComputerPlayer : public IPlayer {
-  public:
-    ComputerPlayer(char letter, int playerNum, std::string type, std::string difficulty);
+class ComputerPlayer : private IPlayer {
+    public:
+        ComputerPlayer(char letter, int playerNum, std::string const& difficulty);
 
-    void clickTile(int x, int y, char letter, IBoardGame* game);
+        ComputerPlayer();
+
+        ~ComputerPlayer();
+
+        void clickTile(int x, int y, IBoardGame* game);
 
         std::pair<int, int> generateMove(IBoardGame* game);
 
