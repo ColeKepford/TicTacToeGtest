@@ -1,4 +1,4 @@
-/*#include "pch.h"
+#include "pch.h"
 #include "../include/TicTacToeGame.h"
 #include"MockHumanPlayer.h"
 #include"MockComputerPlayer.h"
@@ -221,5 +221,4 @@ TEST_F(GameTests, TestModifyTileInvalidChar) {
     catch (std::invalid_argument& e) {
         EXPECT_EQ("Invalid character.", e.what());
     }
-}*/
-
+}

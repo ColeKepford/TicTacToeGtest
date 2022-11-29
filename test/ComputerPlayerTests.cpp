@@ -13,38 +13,36 @@ protected:
     std::string validType[2] = { "Human", "Computer" };
 
     void SetUp() override {
-        player = &ComputerPlayer('X', 2, "computer","easy");
+        player = &ComputerPlayer('X', 2, "easy");
     }
 
     void TearDown() override {
-        
     }
 };
 
 TEST_F(PlayerTests, testLetterX) {
-    player = &ComputerPlayer('X', 2, "computer", "easy");
+    player = &ComputerPlayer('X', 2, "easy");
     EXPECT_EQ('X', player->getLetter());
 }
 
 TEST_F(PlayerTests, testLetterO) {
-    player = &ComputerPlayer('O', 2, "computer", "easy");
+    player = &ComputerPlayer('O', 2, "easy");
     EXPECT_EQ('O', player->getLetter());
 }
 
 TEST_F(PlayerTests, testLetterx) {
-    player = &ComputerPlayer('x', 2, "computer", "easy");
+    player = &ComputerPlayer('x', 2, "easy");
     EXPECT_EQ('X', player->getLetter());
-    EXPECT_EQ("computer", player->getDifficulty());
 }
 
 TEST_F(PlayerTests, testLettero) {
-    player = &ComputerPlayer('O', 2, "computer", "easy");
+    player = &ComputerPlayer('O', 2, "easy");
     EXPECT_EQ('O', player->getLetter());
 }
 
 TEST_F(PlayerTests, testInvalidLetterA) {
     try {
-        player = &ComputerPlayer('A', 2, "computer", "easy");
+        player = &ComputerPlayer('A', 2, "easy");
     }
     catch (std::invalid_argument& e) {
         EXPECT_STREQ("Invalid letter", e.what());
@@ -53,7 +51,7 @@ TEST_F(PlayerTests, testInvalidLetterA) {
 
 TEST_F(PlayerTests, testInvalidLetter) {
     try {
-        player = &ComputerPlayer('%', 2, "computer", "easy");
+        player = &ComputerPlayer('%', 2, "easy");
     }
     catch (std::invalid_argument& e) {
         std::string message = e.what();
@@ -63,7 +61,7 @@ TEST_F(PlayerTests, testInvalidLetter) {
 
 TEST_F(PlayerTests, testInvalidLetterChar) {
     try {
-        player = &ComputerPlayer('%', 2, "computer", "easy");
+        player = &ComputerPlayer('%', 2, "easy");
     }
     catch (std::invalid_argument& e) {
         std::string message = e.what();
@@ -71,30 +69,20 @@ TEST_F(PlayerTests, testInvalidLetterChar) {
     }
 }
 
-TEST_F(PlayerTests, testValidType) {
-    player = &ComputerPlayer('X', 2, "Computer", "easy");
-    EXPECT_EQ("computer", player->getType());
-}
-
-TEST_F(PlayerTests, testInvalidType) {
-    try {
-        player = &ComputerPlayer('X', 2, "Human", "easy");
-    }
-    catch (std::invalid_argument& e) {
-        EXPECT_STREQ("Invalid type", e.what());
-    }
-}
-
-TEST_F(PlayerTests, testInvalidTypeSandwich) {
-    try {
-        player = &ComputerPlayer('X', 2, "Sandwich", "easy");
-    }
-    catch (std::invalid_argument& e) {
-        EXPECT_STREQ("Invalid type", e.what());
-    }
-}
-
 TEST_F(PlayerTests, testClickTile) {
-    player->clickTile(1, 1, player->getLetter(), game);
-    EXPECT_EQ(game->getBoard()[1][1], 'X');
+    ComputerPlayer *player2 = new ComputerPlayer('X', 2, "easy");
+    MockTicTacToeGame* game2 = new MockTicTacToeGame();
+    player2->clickTile(1, 1, game2);
+    EXPECT_EQ(game2->getBoard()[1][1], 'X');
+    delete player2;
+    delete game2;
+}
+
+TEST_F(PlayerTests, testGetMethods) {
+    ComputerPlayer* player2 = new ComputerPlayer('O', 1, "easy");
+    EXPECT_EQ('O', player2->getLetter());
+    EXPECT_EQ(1, player2->getPlayerNum());
+    EXPECT_EQ("computer", player2->getType());
+    EXPECT_EQ("easy", player2->getDifficulty());
+    delete player2;
 }

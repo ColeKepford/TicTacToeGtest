@@ -4,6 +4,10 @@ class MockTicTacToeGame : public IBoardGame {
 	public:
 		std::vector<std::vector<char>> board;
 
+        MockTicTacToeGame() {
+            createBoard(9);
+        }
+
         void assignPlayer(IPlayer* player) {
 
         }
@@ -13,10 +17,10 @@ class MockTicTacToeGame : public IBoardGame {
         }
 
         void createBoard(int size) {
-            std::vector<std::vector<char> > matrix(3);
-            for (int i = 0; i < 3; i++) {
-                matrix[i].resize(3);
-            }
+            std::vector<std::vector<char>> matrix
+                { { 'N', 'N', 'N'},
+                { 'N', 'N', 'N'},
+                { 'N', 'N', 'N'}};
             board = matrix;
        }
 

@@ -5,13 +5,13 @@
 
 class ComputerPlayer : private IPlayer {
     public:
-        ComputerPlayer(char letter, int playerNum, std::string type, std::string difficulty);
+        ComputerPlayer(char letter, int playerNum, std::string const& difficulty);
 
         ComputerPlayer();
 
         ~ComputerPlayer();
 
-        void clickTile(int x, int y, char letter, IBoardGame* game);
+        void clickTile(int x, int y, IBoardGame* game);
 
         std::pair<int, int> generateMove(IBoardGame* game);
 
