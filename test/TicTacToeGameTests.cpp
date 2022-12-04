@@ -1,4 +1,4 @@
-#include "pch.h"
+/*#include "pch.h"
 #include "../include/TicTacToeGame.h"
 #include"MockHumanPlayer.h"
 #include"MockComputerPlayer.h"
@@ -19,7 +19,7 @@ class GameTests : public ::testing::Test {
 
         }
 };
-/*TEST_F(GameTests, testAssignPlayerNotNull) {
+TEST_F(GameTests, testAssignPlayerNotNull) {
     try {
         game.assignPlayer(human);
     }

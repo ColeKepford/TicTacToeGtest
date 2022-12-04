@@ -4,9 +4,9 @@
 class MockComputerPlayer : public IPlayer {
 public:
     MockComputerPlayer() {
-    IPlayer:letter = 'O';
-    IPLayer:playerNum = 2;
-    IPlayer:type = "computer";
+    letter = 'O';
+    playerNum = 2;
+    type = "computer";
     }
 
     void clickTile(int x, int y, char letter, IBoardGame* game) {

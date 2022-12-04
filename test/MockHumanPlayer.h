@@ -6,9 +6,9 @@ public:
     int clickCounter = 0;
 
     MockHumanPlayer() {
-    IPlayer:letter = 'X';
-    IPLayer:playerNum = 1;
-    IPlayer:type = "human";
+    letter = 'X';
+    playerNum = 1;
+    type = "human";
     }
 
 

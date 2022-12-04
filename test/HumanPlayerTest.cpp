@@ -1,66 +1,79 @@
-#include "pch.h"
-#include "../include/TicTacToeGame.h"
-#include "../include/HumanPlayer.h"
 #include <string>
+#include "pch.h"
+#include "../include/HumanPlayer.h"
+#include "MockTicTacToeGame.h"
 
-class PlayerTests :public::testing::Test {
-    protected:
-        HumanPlayer* player;
-        char validLetters[4] = {'X', 'x', 'O', 'o'};
-        int validPlayerNum[2] = {1, 2};
-        std::string validType[2] = {"Human", "Computer"};
-
+class HumanPlayerTests :public::testing::Test {
+protected:
+    HumanPlayer player;
     void SetUp() override {
-        player = new HumanPlayer();
+
     }
 
     void TearDown() override {
-        player = NULL;
-        delete player;
     }
 };
 
-TEST_F(PlayerTests, testAssignLetterX) {
-    player->setLetter('X');
-    EXPECT_THAT(validLetters, Contains(player->getLetter()));
+TEST_F(HumanPlayerTests, testLetterX) {
+    HumanPlayer player = HumanPlayer('X', 2);
+    EXPECT_EQ('X', player.getLetter());
 }
 
-TEST_F(PlayerTests, testAssignLetterO) {
-    player->setLetter('O');
-    EXPECT_THAT(validLetters, Contains(player->getLetter()));
+TEST_F(HumanPlayerTests, testLetterO) {
+    HumanPlayer player = HumanPlayer('O', 2);
+    EXPECT_EQ('O', player.getLetter());
 }
 
-TEST_F(PlayerTests, testAssignLetterInvalid) {
-    player->setLetter('A');
-    EXPECT_THAT(validLetters, Contains(player->getLetter()));
+TEST_F(HumanPlayerTests, testLetterx) {
+    HumanPlayer player = HumanPlayer('x', 2);
+    EXPECT_EQ('X', player.getLetter());
 }
 
-TEST_F(PlayerTests, testAssignLetterNULL) {
-    player->setLetter(NULL);
-    EXPECT_THAT(validLetters, Contains(player->getLetter()));
+TEST_F(HumanPlayerTests, testLettero) {
+    HumanPlayer player = HumanPlayer('O', 2);
+    EXPECT_EQ('O', player.getLetter());
 }
 
-TEST_F(PlayerTests, testAssignPlayerNum1) {
-    player->setPlayerNum(1);
-    EXPECT_THAT(validPlayerNum, Contains(player->getPlayerNum()));
+TEST_F(HumanPlayerTests, testInvalidLetterA) {
+    try {
+        player = HumanPlayer('A', 2);
+    }
+    catch (std::invalid_argument& e) {
+        EXPECT_STREQ("Invalid letter", e.what());
+    }
 }
 
-TEST_F(PlayerTests, testAssignPlayerNum2) {
-    player->setPlayerNum(2);
-    EXPECT_THAT(validPlayerNum, Contains(player->getPlayerNum()));
+TEST_F(HumanPlayerTests, testInvalidLetter) {
+    try {
+        player = HumanPlayer('%', 2);;
+    }
+    catch (std::invalid_argument& e) {
+        std::string message = e.what();
+        EXPECT_EQ("Invalid letter", message);
+    }
 }
 
-TEST_F(PlayerTests, testAssignPlayerNumInvalid) {
-    player->setPlayerNum(42);
-    EXPECT_THAT(validPlayerNum, Contains(player->getPlayerNum()));
+TEST_F(HumanPlayerTests, testInvalidLetterChar) {
+    try {
+        player = HumanPlayer('%', 2);
+    }
+    catch (std::invalid_argument& e) {
+        std::string message = e.what();
+        EXPECT_EQ("Invalid letter", message);
+    }
 }
 
-TEST_F(PlayerTests, testAssignPlayerNumNULL) {
-    player->setPlayerNum(NULL);
-    EXPECT_THAT(validPlayerNum, Contains(player->getPlayerNum()));
+TEST_F(HumanPlayerTests, testClickTile) {
+    player = HumanPlayer('X', 2);
+    MockTicTacToeGame* game = new MockTicTacToeGame();
+    player.clickTile(1, 1, game);
+    EXPECT_EQ(game->getBoard()[1][1], 'X');
+    delete game;
 }
 
-TEST_F(PlayerTests, testAssignPlayerTypeHuman) {
-    player->setType("Human");
-    EXPECT_THAT(validType, Contains(player->getType()));
+TEST_F(HumanPlayerTests, testGetMethods) {
+    HumanPlayer player2 = HumanPlayer('O', 1);
+    EXPECT_EQ('O', player2.getLetter());
+    EXPECT_EQ(1, player2.getPlayerNum());
+    EXPECT_EQ("human", player2.getType());
 }
