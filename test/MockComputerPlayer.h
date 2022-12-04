@@ -1,0 +1,35 @@
+#pragma once
+#include"../include/IPlayer.h"
+#include"../include/IBoardGame.h"
+class MockComputerPlayer : public IPlayer {
+public:
+    MockComputerPlayer() {
+    IPlayer:letter = 'O';
+    IPLayer:playerNum = 2;
+    IPlayer:type = "computer";
+    }
+
+    void clickTile(int x, int y, char letter, IBoardGame* game) {
+
+    }
+
+    char getLetter() {
+        return 'N';
+    }
+
+    int getPlayerNum() {
+        return playerNum;
+    }
+
+    std::string getType() {
+        return type;
+    }
+
+    void setLetter(char letter) {
+
+    }
+
+    void setPlayerNum() {
+
+    }
+};
