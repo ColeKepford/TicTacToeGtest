@@ -13,7 +13,7 @@ class MockTicTacToeGame : public IBoardGame {
         }
 
         int checkEnd() {
-            return NULL;
+            return -5;
         }
 
         void createBoard(int size) {
@@ -53,15 +53,15 @@ class MockTicTacToeGame : public IBoardGame {
             return -1;
         }
 
-        std::vector<IPlayer*> getPlayers() {
-            return std::vector<IPlayer*>(2);
+        std::pair<IPlayer*, IPlayer*> getPlayers() {
+            return std::pair<IPlayer*, IPlayer*>(nullptr, nullptr);
         }
 
         void setBoard(std::vector <std::vector<char>> board) {
             
         }
 
-        void setPlayers(std::vector<IPlayer*> player) {
+        void setPlayers(std::pair<IPlayer*, IPlayer*> i_player) {
 
 };
 };

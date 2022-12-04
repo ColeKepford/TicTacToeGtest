@@ -3,13 +3,19 @@
 
 class TicTacToeGame : private IBoardGame {
   public:
+    TicTacToeGame();
+
+    ~TicTacToeGame();
+
+    TicTacToeGame(std::pair<IPlayer*, IPlayer*> i_players);
+
+    TicTacToeGame(int size, std::pair<IPlayer*, IPlayer*> i_players);
+
     void assignPlayer(IPlayer* player);
 
     int checkEnd();
 
     void createBoard(int size);
-
-    void endGame();
 
     void endTurn();
 
@@ -23,9 +29,9 @@ class TicTacToeGame : private IBoardGame {
 
     int getTurn();
 
-    std::vector<IPlayer*> getPlayers();
+    std::pair<IPlayer*, IPlayer*> getPlayers();
 
     void setBoard(std::vector<std::vector<char>> board);
 
-    void setPlayers(std::vector<IPlayer*> player);
+    void setPlayers(std::pair<IPlayer*, IPlayer*> i_player);
 };

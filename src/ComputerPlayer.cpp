@@ -8,7 +8,7 @@ ComputerPlayer::ComputerPlayer(char iLetter, int iPlayerNum, std::string const& 
         letter = (char)toupper(iLetter);
     }
     else {
-        letter = NULL;
+        letter = 0;
         throw std::invalid_argument("Invalid letter");
     }
     playerNum = iPlayerNum;

@@ -19,7 +19,7 @@ class IPlayer;
 class IBoardGame {
 public:
     std::vector<std::vector<char>> board;
-    std::vector<IPlayer*> players;
+    std::pair<IPlayer*, IPlayer*> players;
     int turn;
     int currentPlayerNum;
     
@@ -28,8 +28,6 @@ public:
     virtual int checkEnd() = 0;
 
     virtual void createBoard(int size) = 0; 
-
-    virtual void endGame() = 0;
 
     virtual void endTurn() = 0;
 
@@ -43,9 +41,9 @@ public:
 
     virtual int getTurn() = 0;
 
-    virtual std::vector<IPlayer*> getPlayers() = 0;
+    virtual std::pair<IPlayer*, IPlayer*> getPlayers() = 0;
 
     virtual void setBoard(std::vector <std::vector<char>> board) = 0;
 
-    virtual void setPlayers(std::vector<IPlayer*> player) = 0;
+    virtual void setPlayers(std::pair<IPlayer*, IPlayer*> i_players) = 0;
 };

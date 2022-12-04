@@ -91,6 +91,7 @@ TEST_F(ComputerPlayerTests, testGenerateMoveEmptyBoard) {
         inRange = true;
     }
     EXPECT_EQ(true, inRange);
+    delete game2;
 }
 
 TEST_F(ComputerPlayerTests, testGenerateMoveTopRowFull) {
