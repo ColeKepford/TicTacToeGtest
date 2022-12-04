@@ -9,7 +9,7 @@ public:
     type = "computer";
     }
 
-    void clickTile(int x, int y, char letter, IBoardGame* game) {
+    void clickTile(int x, int y, IBoardGame* game) {
 
     }
 

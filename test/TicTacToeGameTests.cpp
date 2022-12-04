@@ -6,13 +6,13 @@
 class GameTests : public ::testing::Test {
     protected:
         TicTacToeGame game;
-        MockHumanPlayer* human;
-        MockComputerPlayer* computer;
+        MockHumanPlayer human;
+        MockComputerPlayer computer;
 
         void SetUp() override {
             game = TicTacToeGame();
-            computer = &MockComputerPlayer();
-            human = &MockHumanPlayer();
+            computer = MockComputerPlayer();
+            human = MockHumanPlayer();
         }
 
         void TearDown() override {
@@ -21,7 +21,9 @@ class GameTests : public ::testing::Test {
 };
 TEST_F(GameTests, testAssignPlayerNotNull) {
     try {
-        game.assignPlayer(human);
+        MockHumanPlayer* human2 = new MockHumanPlayer();
+        game.assignPlayer(human2);
+        delete human2;
     }
     catch (std::invalid_argument& e) {
         std::cerr << e.what() << std::endl;
@@ -30,9 +32,9 @@ TEST_F(GameTests, testAssignPlayerNotNull) {
 }
 
 TEST_F(GameTests, testAssignPlayerNull) {
-    human = 0L;//value of null in c++
+    MockHumanPlayer * human2 = 0L;//value of null in c++
     try {
-        game.assignPlayer(human);
+        game.assignPlayer(human2);
     }
     catch (std::invalid_argument& e) {
         EXPECT_EQ("Player is null.", e.what());
@@ -126,15 +128,25 @@ TEST_F(GameTests, TestCreateBoardSizeNegative) {
 }
 
 TEST_F(GameTests, TestEndTurn1) {
+    MockHumanPlayer* human2 = new MockHumanPlayer();
+    MockComputerPlayer* computer2 = new MockComputerPlayer();
+    game.assignPlayer(human2);
+    game.assignPlayer(computer2);
     int turn = game.getTurn();
     int playerNum = game.getCurrentPlayerNum();
     game.endTurn();
     EXPECT_NE(turn, game.getTurn());
     EXPECT_NE(playerNum, game.getCurrentPlayerNum());
     EXPECT_EQ(2, game.getTurn());
+    delete computer2;
+    delete human2;
 }
 
 TEST_F(GameTests, TestEndTurn2) {
+    MockHumanPlayer* human2 = new MockHumanPlayer();
+    MockComputerPlayer* computer2 = new MockComputerPlayer();
+    game.assignPlayer(human2);
+    game.assignPlayer(computer2);
     int turn = game.getTurn();
     int playerNum = game.getCurrentPlayerNum();
     game.endTurn();
@@ -142,9 +154,15 @@ TEST_F(GameTests, TestEndTurn2) {
     EXPECT_NE(turn, game.getTurn());
     EXPECT_EQ(playerNum, game.getCurrentPlayerNum());
     EXPECT_EQ(3, game.getTurn());
+    delete computer2;
+    delete human2;
 }
 
 TEST_F(GameTests, TestEndTurn3) {
+    MockHumanPlayer* human2 = new MockHumanPlayer();
+    MockComputerPlayer* computer2 = new MockComputerPlayer();
+    game.assignPlayer(human2);
+    game.assignPlayer(computer2);
     int turn = game.getTurn();
     int playerNum = game.getCurrentPlayerNum();
     game.endTurn();
@@ -221,4 +239,5 @@ TEST_F(GameTests, TestModifyTileInvalidChar) {
     catch (std::invalid_argument& e) {
         EXPECT_EQ("Invalid character.", e.what());
     }
-}*/
+}
+*/
