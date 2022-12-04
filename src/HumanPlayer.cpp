@@ -4,22 +4,32 @@
  * @brief Source code for HumanPlayer class.
  * @version 0.1
  * @date 2022-11-22
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
 #include "HumanPlayer.h"
+#include <stdexcept>
 
-HumanPlayer::HumanPlayer() {};
-
-HumanPlayer::HumanPlayer(char letter, int playerNum, std::string type) {
-    this->letter = letter;
-    this->playerNum = playerNum;
-    this->type = type;
+HumanPlayer::HumanPlayer() {
+    type = "human";
 }
 
-void HumanPlayer::clickTile(int x, int y, char letter, IBoardGame* game) {
+HumanPlayer::HumanPlayer(char iLetter, int playerNum) {
+    if (iLetter == 'X' || iLetter == 'x' || iLetter == 'O' || iLetter == 'o') {
+        letter = (char)toupper(iLetter);
+    }
+    else {
+        letter = 0;
+        throw std::invalid_argument("Invalid letter");
+    }
+    this->playerNum = playerNum;
+    this->type = "human";
+
+}
+
+void HumanPlayer::clickTile(int x, int y, IBoardGame* game) {
     game->modifyTile(x, y, letter);
 }
 
@@ -33,12 +43,4 @@ int HumanPlayer::getPlayerNum() {
 
 std::string HumanPlayer::getType() {
     return this->type;
-}
-
-void HumanPlayer::setLetter(char letter) {
-    this->letter = letter;
-}
-
-void HumanPlayer::setPlayerNum(int num) {
-    this->playerNum = num;
 }

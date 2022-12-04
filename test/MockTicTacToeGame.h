@@ -46,11 +46,11 @@ class MockTicTacToeGame : public IBoardGame {
         }
 
         int getCurrentPlayerNum() {
-            return NULL;
+            return -1;
         }
 
         int getTurn() {
-            return NULL;
+            return -1;
         }
 
         std::vector<IPlayer*> getPlayers() {
