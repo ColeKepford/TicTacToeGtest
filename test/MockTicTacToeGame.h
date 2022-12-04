@@ -13,7 +13,7 @@ class MockTicTacToeGame : public IBoardGame {
         }
 
         int checkEnd() {
-            return NULL;
+            return -5;
         }
 
         void createBoard(int size) {
