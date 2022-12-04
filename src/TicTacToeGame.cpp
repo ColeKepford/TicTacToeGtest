@@ -8,7 +8,7 @@ TicTacToeGame::TicTacToeGame() {
     players.first = nullptr;
     players.second = nullptr;
     createBoard(3);
-    currentPlayerNum = 1;
+    currentPlayer = nullptr;
 }
 
 TicTacToeGame::~TicTacToeGame() {
@@ -23,7 +23,7 @@ TicTacToeGame::~TicTacToeGame() {
 TicTacToeGame::TicTacToeGame(std::pair<IPlayer*, IPlayer*> i_players) {
     turn = 0;
     players = i_players;
-    currentPlayerNum = i_players.first->getPlayerNum();
+    currentPlayer = i_players.first;
     createBoard(3);
 }
 
@@ -32,7 +32,7 @@ TicTacToeGame::TicTacToeGame(std::pair<IPlayer*, IPlayer*> i_players) {
 TicTacToeGame::TicTacToeGame(int size, std::pair<IPlayer*, IPlayer*> i_players) {
     turn = 0;
     players = i_players;
-    currentPlayerNum = players.first->getPlayerNum();
+    currentPlayer = players.first;
     createBoard(size);
 }
 //need to readjust this
@@ -42,6 +42,7 @@ void TicTacToeGame::assignPlayer(IPlayer* player) {
     }
     else if(players.first == nullptr) {
         players.first = player;
+        currentPlayer = players.first;
     }
     else if(players.second == nullptr) {
         players.second = player;
@@ -112,11 +113,11 @@ void TicTacToeGame::createBoard(int size) {
 void TicTacToeGame::endTurn() {
     this->turn += 1;
 
-    if (currentPlayerNum == players.first->getPlayerNum()) {
-        currentPlayerNum = players.second->getPlayerNum();
+    if (currentPlayer->getPlayerNum() == players.first->getPlayerNum()) {
+        currentPlayer = players.second;
     }
     else {
-        currentPlayerNum = players.first->getPlayerNum();
+        currentPlayer = players.first;
     }
 }
 
@@ -129,8 +130,8 @@ int TicTacToeGame::getBoardSize() {
     return size;
 }
 
-int TicTacToeGame::getCurrentPlayerNum() {
-    return currentPlayerNum;
+IPlayer* TicTacToeGame::getCurrentPlayer() {
+    return currentPlayer;
 }
 
 int TicTacToeGame::getTurn() {

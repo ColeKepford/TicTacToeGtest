@@ -161,10 +161,10 @@ TEST_F(GameTests, TestEndTurn1) {
     game.assignPlayer(human2);
     game.assignPlayer(computer2);
     int turn = game.getTurn();
-    int playerNum = game.getCurrentPlayerNum();
+    int playerNum = game.getCurrentPlayer()->getPlayerNum();
     game.endTurn();
     EXPECT_NE(turn, game.getTurn());
-    EXPECT_NE(playerNum, game.getCurrentPlayerNum());
+    EXPECT_NE(playerNum, game.getCurrentPlayer()->getPlayerNum());
     EXPECT_EQ(2, game.getTurn());
 }
 
@@ -174,11 +174,11 @@ TEST_F(GameTests, TestEndTurn2) {
     game.assignPlayer(human2);
     game.assignPlayer(computer2);
     int turn = game.getTurn();
-    int playerNum = game.getCurrentPlayerNum();
+    int playerNum = game.getCurrentPlayer()->getPlayerNum();
     game.endTurn();
     game.endTurn();
     EXPECT_NE(turn, game.getTurn());
-    EXPECT_EQ(playerNum, game.getCurrentPlayerNum());
+    EXPECT_EQ(playerNum, game.getCurrentPlayer()->getPlayerNum());
     EXPECT_EQ(3, game.getTurn());
 }
 
@@ -188,13 +188,13 @@ TEST_F(GameTests, TestEndTurn3) {
     game.assignPlayer(human2);
     game.assignPlayer(computer2);
     int turn = game.getTurn();
-    int playerNum = game.getCurrentPlayerNum();
+    int playerNum = game.getCurrentPlayer()->getPlayerNum();
     game.endTurn();
     game.endTurn();
     game.endTurn();
     EXPECT_NE(turn, game.getTurn());
-    EXPECT_NE(playerNum, game.getCurrentPlayerNum());
-    EXPECT_EQ(2, game.getCurrentPlayerNum());
+    EXPECT_NE(playerNum, game.getCurrentPlayer()->getPlayerNum());
+    EXPECT_EQ(2, game.getCurrentPlayer()->getPlayerNum());
     EXPECT_EQ(4, game.getTurn());
 }
 
