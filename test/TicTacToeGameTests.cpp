@@ -165,7 +165,6 @@ TEST_F(GameTests, TestEndTurn1) {
     EXPECT_NE(turn, game.getTurn());
     EXPECT_NE(playerNum, game.getCurrentPlayerNum());
     EXPECT_EQ(2, game.getTurn());
-    game.~TicTacToeGame();
 }
 
 TEST_F(GameTests, TestEndTurn2) {
@@ -180,7 +179,6 @@ TEST_F(GameTests, TestEndTurn2) {
     EXPECT_NE(turn, game.getTurn());
     EXPECT_EQ(playerNum, game.getCurrentPlayerNum());
     EXPECT_EQ(3, game.getTurn());
-    game.~TicTacToeGame();
 }
 
 TEST_F(GameTests, TestEndTurn3) {
@@ -197,7 +195,6 @@ TEST_F(GameTests, TestEndTurn3) {
     EXPECT_NE(playerNum, game.getCurrentPlayerNum());
     EXPECT_EQ(2, game.getCurrentPlayerNum());
     EXPECT_EQ(4, game.getTurn());
-    game.~TicTacToeGame();
 }
 
 TEST_F(GameTests, TestModifyTileValid) {
