@@ -20,8 +20,9 @@ class IBoardGame {
 public:
     std::vector<std::vector<char>> board;
     std::pair<IPlayer*, IPlayer*> players;
+    IPlayer* currentPlayer;
     int turn;
-    int currentPlayerNum;
+    
     
     virtual void assignPlayer(IPlayer* player) = 0; 
 
@@ -37,7 +38,7 @@ public:
 
     virtual int getBoardSize() = 0;
 
-    virtual int getCurrentPlayerNum() = 0;
+    virtual IPlayer* getCurrentPlayer() = 0;
 
     virtual int getTurn() = 0;
 

@@ -45,8 +45,8 @@ class MockTicTacToeGame : public IBoardGame {
             return 9;
         }
 
-        int getCurrentPlayerNum() {
-            return -1;
+        IPlayer* getCurrentPlayer() {
+            return nullptr;
         }
 
         int getTurn() {

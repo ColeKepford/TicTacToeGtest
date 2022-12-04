@@ -25,7 +25,7 @@ class TicTacToeGame : private IBoardGame {
 
     int getBoardSize();
 
-    int getCurrentPlayerNum();
+    IPlayer* getCurrentPlayer();
 
     int getTurn();
 
