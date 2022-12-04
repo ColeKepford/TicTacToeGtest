@@ -15,19 +15,17 @@ class TicTacToeGame : private IBoardGame {
 
     bool modifyTile(int x, int y, char letter);
 
-    std::vector<char> getBoard();
+    std::vector<std::vector<char>> getBoard();
 
-        std::vector<std::vector<char>> getBoard();
+    int getBoardSize();
 
-        int getBoardSize();
+    int getCurrentPlayerNum();
 
     int getTurn();
 
     std::vector<IPlayer*> getPlayers();
 
-        std::vector<IPlayer*> getPlayers();
+    void setBoard(std::vector<std::vector<char>> board);
 
-        void setBoard(std::vector<std::vector<char>> board);
-
-        void setPlayers(std::vector<IPlayer*> player);
+    void setPlayers(std::vector<IPlayer*> player);
 };
