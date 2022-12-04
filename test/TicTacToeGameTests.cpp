@@ -34,6 +34,7 @@ TEST_F(GameTests, testAssignPlayerNull) {
     MockHumanPlayer * human2 = 0L;//value of null in c++
     try {
         game.assignPlayer(human2);
+        delete human2;
     }
     catch (std::invalid_argument& e) {
         std::string message = e.what();
