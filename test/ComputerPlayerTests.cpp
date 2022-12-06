@@ -7,9 +7,10 @@
 class ComputerPlayerTests :public::testing::Test {
 protected:
     ComputerPlayer player;
-    MockTicTacToeGame game;
+    std::unique_ptr<MockTicTacToeGame> game;
 
     void SetUp() override {
+        game.reset(new MockTicTacToeGame());
     }
 
     void TearDown() override {
@@ -67,10 +68,9 @@ TEST_F(ComputerPlayerTests, testInvalidLetterChar) {
 
 TEST_F(ComputerPlayerTests, testClickTile) {
     player = ComputerPlayer('X', 2, "easy");
-    MockTicTacToeGame * game2 = new MockTicTacToeGame();
-    player.clickTile(1, 1, game2);
-    EXPECT_EQ(game2->getBoard()[1][1], 'X');
-    delete game2;
+    std::shared_ptr<IBoardGame> game(new MockTicTacToeGame());
+    player.clickTile(1, 1, game);
+    EXPECT_EQ(game.get()->getBoard()[1][1], player.getLetter());
 }
 
 TEST_F(ComputerPlayerTests, testGetMethods) {

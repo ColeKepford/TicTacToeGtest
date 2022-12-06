@@ -8,7 +8,7 @@ class MockTicTacToeGame : public IBoardGame {
             createBoard(9);
         }
 
-        void assignPlayer(IPlayer* player) {
+        void assignPlayer(std::unique_ptr<IPlayer> player) {
 
         }
 
@@ -23,10 +23,6 @@ class MockTicTacToeGame : public IBoardGame {
                 { 'N', 'N', 'N'}};
             board = matrix;
        }
-
-       void endGame() {
-
-        }
 
         void endTurn() {
 
@@ -45,23 +41,21 @@ class MockTicTacToeGame : public IBoardGame {
             return 9;
         }
 
-        IPlayer* getCurrentPlayer() {
-            return nullptr;
+        char getCurrentLetter() {
+            return 'N';
         }
 
         int getTurn() {
             return -1;
         }
 
-        std::pair<IPlayer*, IPlayer*> getPlayers() {
-            return std::pair<IPlayer*, IPlayer*>(nullptr, nullptr);
-        }
-
         void setBoard(std::vector <std::vector<char>> board) {
             
         }
 
-        void setPlayers(std::pair<IPlayer*, IPlayer*> i_player) {
+        void setPlayers(std::pair<std::unique_ptr<IPlayer>, std::unique_ptr<IPlayer>> i_players) {
 
-};
+        }
+
+
 };

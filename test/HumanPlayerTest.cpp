@@ -65,10 +65,9 @@ TEST_F(HumanPlayerTests, testInvalidLetterChar) {
 
 TEST_F(HumanPlayerTests, testClickTile) {
     player = HumanPlayer('X', 2);
-    MockTicTacToeGame* game = new MockTicTacToeGame();
+    std::shared_ptr<IBoardGame> game(new MockTicTacToeGame());
     player.clickTile(1, 1, game);
-    EXPECT_EQ(game->getBoard()[1][1], 'X');
-    delete game;
+    EXPECT_EQ(game.get()->getBoard()[1][1], 'X');
 }
 
 TEST_F(HumanPlayerTests, testGetMethods) {
