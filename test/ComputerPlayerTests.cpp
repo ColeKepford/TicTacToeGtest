@@ -1,9 +1,22 @@
+/**
+ * @file 
+ * @author 
+ * @brief 
+ * @version 
+ * @date 
+ * 
+ * @copyright Copyright (c) 2022
+ */
+
 #include <string>
 #include "pch.h"
 #include "../include/TicTacToeGame.h"
 #include "../include/ComputerPlayer.h"
 #include "MockTicTacToeGame.h"
 
+/**
+ * @details Tests for ComputerPlayer class
+*/
 class ComputerPlayerTests :public::testing::Test {
 protected:
     ComputerPlayer player;
@@ -17,26 +30,56 @@ protected:
     }
 };
 
+/**
+ * @brief Test to check letter = X
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testLetterX name of the test
+*/
 TEST_F(ComputerPlayerTests, testLetterX) {
     player = ComputerPlayer('X', 2, "easy");
     EXPECT_EQ('X', player.getLetter());
 }
 
+/**
+ * @brief Test to check letter = O
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testLetterO name of the test
+*/
 TEST_F(ComputerPlayerTests, testLetterO) {
     player = ComputerPlayer('O', 2, "easy");
     EXPECT_EQ('O', player.getLetter());
 }
 
+/**
+ * @brief Test to check letter = x
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testLetterx name of the test
+*/
 TEST_F(ComputerPlayerTests, testLetterx) {
     player = ComputerPlayer('x', 2, "easy");
     EXPECT_EQ('X', player.getLetter());
 }
 
+/**
+ * @brief Test to check letter = o
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testLettero name of the test
+*/
 TEST_F(ComputerPlayerTests, testLettero) {
     player = ComputerPlayer('O', 2, "easy");
     EXPECT_EQ('O', player.getLetter());
 }
 
+/**
+ * @brief Test to check invalid letter = A
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testInvalidLetterA name of the test
+*/
 TEST_F(ComputerPlayerTests, testInvalidLetterA) {
     try {
         player = ComputerPlayer('A', 2, "easy");
@@ -46,6 +89,12 @@ TEST_F(ComputerPlayerTests, testInvalidLetterA) {
     }
 }
 
+/**
+ * @brief Test to check invalid letter = % 
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testInvalidLetter name of the test
+*/
 TEST_F(ComputerPlayerTests, testInvalidLetter) {
     try {
         player = ComputerPlayer('%', 2, "easy");
@@ -56,6 +105,12 @@ TEST_F(ComputerPlayerTests, testInvalidLetter) {
     }
 }
 
+/**
+ * @brief Test to check invalid char = %
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testInvalidLetterChar name of the test
+*/
 TEST_F(ComputerPlayerTests, testInvalidLetterChar) {
     try {
         player = ComputerPlayer('%', 2, "easy");
@@ -66,6 +121,12 @@ TEST_F(ComputerPlayerTests, testInvalidLetterChar) {
     }
 }
 
+/**
+ * @brief Test to click tile
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testClickTile name of the test
+*/
 TEST_F(ComputerPlayerTests, testClickTile) {
     player = ComputerPlayer('X', 2, "easy");
     std::shared_ptr<IBoardGame> game(new MockTicTacToeGame());
@@ -73,6 +134,12 @@ TEST_F(ComputerPlayerTests, testClickTile) {
     EXPECT_EQ(game.get()->getBoard()[1][1], player.getLetter());
 }
 
+/**
+ * @brief Test to check all the getters
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testGetMethods name of the test
+*/
 TEST_F(ComputerPlayerTests, testGetMethods) {
     player = ComputerPlayer('O', 1, "easy");
     EXPECT_EQ('O', player.getLetter());
@@ -81,6 +148,12 @@ TEST_F(ComputerPlayerTests, testGetMethods) {
     EXPECT_EQ("easy", player.getDifficulty());
 }
 
+/**
+ * @brief Test to call a move on an empty board
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testGenerateMoveEmptyBoard name of the test
+*/
 TEST_F(ComputerPlayerTests, testGenerateMoveEmptyBoard) {
     
     player = ComputerPlayer('X', 1, "easy");
@@ -94,6 +167,12 @@ TEST_F(ComputerPlayerTests, testGenerateMoveEmptyBoard) {
     delete game2;
 }
 
+/**
+ * @brief Test to call a move when the top row is full 
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testGenerateMoveTopRowFull name of the test
+*/
 TEST_F(ComputerPlayerTests, testGenerateMoveTopRowFull) {
 
     player = ComputerPlayer('X', 1, "easy");
@@ -110,6 +189,12 @@ TEST_F(ComputerPlayerTests, testGenerateMoveTopRowFull) {
     delete game2;
 }
 
+/**
+ * @brief Test to call a move when the middle row is full 
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testGenerateMoveMiddleRowFull name of the test
+*/
 TEST_F(ComputerPlayerTests, testGenerateMoveMiddleRowFull) {
 
     player = ComputerPlayer('X', 1, "easy");
@@ -126,6 +211,12 @@ TEST_F(ComputerPlayerTests, testGenerateMoveMiddleRowFull) {
     delete game2;
 }
 
+/**
+ * @brief Test to call a move when the bottom row is full 
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testGenerateMoveBottomRowFull name of the test
+*/
 TEST_F(ComputerPlayerTests, testGenerateMoveBottomRowFull) {
 
     player = ComputerPlayer('X', 1, "easy");
@@ -142,6 +233,12 @@ TEST_F(ComputerPlayerTests, testGenerateMoveBottomRowFull) {
     delete game2;
 }
 
+/**
+ * @brief Test to call a move when the middle column is full 
+ * 
+ * @param ComputerPlayerTests call the ComputerPlayer Class to be used
+ * @param testGenerateMoveMiddleColumnFull name of the test
+*/
 TEST_F(ComputerPlayerTests, testGenerateMoveMiddleColumnFull) {
 
     player = ComputerPlayer('X', 1, "easy");
