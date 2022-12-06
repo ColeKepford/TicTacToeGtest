@@ -9,12 +9,14 @@
  */
 
 #pragma once
-#include "IBoardGame.h"
+
 #include <vector>
 #include <utility>
 
+#include "IBoardGame.h"
+
 class TicTacToeGame : private IBoardGame {
-public:
+ public:
     /**
      * @brief Default constructor for TicTacToeGame
     */

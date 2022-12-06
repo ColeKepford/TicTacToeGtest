@@ -8,28 +8,27 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "pch.h"
+#include <memory>
+
 #include "../include/TicTacToeGame.h"
 #include"MockHumanPlayer.h"
 #include"MockComputerPlayer.h"
-#include <memory>
+#include "pch.h"
 
 /**
  * @details Tests for TicTacToeGameTests class
 */
 class GameTests : public ::testing::Test {
-    protected:
-        std::unique_ptr<TicTacToeGame> game;
-        std::unique_ptr<IPlayer> human;
-        std::unique_ptr<IPlayer> computer;
+ protected:
+    std::unique_ptr<TicTacToeGame> game;
+    std::unique_ptr<IPlayer> human;
+    std::unique_ptr<IPlayer> computer;
 
-        void SetUp() override {
-            game.reset(new TicTacToeGame);
-        }
+    void SetUp() override {
+        game.reset(new TicTacToeGame);
+    }
 
-        void TearDown() override {
-            
-        }
+    void TearDown() override {}
 };
 
 /**

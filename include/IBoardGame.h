@@ -10,19 +10,21 @@
  */
 
 #pragma once
-#include "IPlayer.h"
-#include <vector>
-#include <utility>
-#include <memory>
 
- // forward declaration
+#include <vector>
+#include <memory>
+#include <utility>
+
+#include "IPlayer.h"
+
+// forward declaration
 class IPlayer;
 
 /**
  * @details Class for BoardGame objects
 */
 class IBoardGame {
-public:
+ public:
     std::vector<std::vector<char>> board;
     std::pair<std::unique_ptr<IPlayer>, std::unique_ptr<IPlayer>> players;
     char currentLetter;

@@ -9,8 +9,9 @@
  *
  */
 
-#include "HumanPlayer.h"
 #include <stdexcept>
+
+#include "HumanPlayer.h"
 
  /**
   * @brief Implemented default constructor for HumanPlayer
@@ -35,11 +36,11 @@ HumanPlayer::~HumanPlayer() {
 HumanPlayer::HumanPlayer(char iLetter, int playerNum) {
     if (iLetter == 'X' || iLetter == 'x' || iLetter == 'O' || iLetter == 'o') {
         letter = static_cast<char>(toupper(iLetter));
-    }
-    else {
+    } else {
         letter = 0;
         throw std::invalid_argument("Invalid letter");
     }
+
     this->playerNum = playerNum;
     this->type = "human";
 }

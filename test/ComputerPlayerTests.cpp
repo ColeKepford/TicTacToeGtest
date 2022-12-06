@@ -9,16 +9,17 @@
  */
 
 #include <string>
-#include "pch.h"
+
 #include "../include/TicTacToeGame.h"
 #include "../include/ComputerPlayer.h"
 #include "MockTicTacToeGame.h"
+#include "pch.h"
 
 /**
  * @details Tests for ComputerPlayer class
 */
 class ComputerPlayerTests :public::testing::Test {
-protected:
+ protected:
     ComputerPlayer player;
     std::unique_ptr<MockTicTacToeGame> game;
 
@@ -26,8 +27,7 @@ protected:
         game.reset(new MockTicTacToeGame());
     }
 
-    void TearDown() override {
-    }
+    void TearDown() override {}
 };
 
 /**

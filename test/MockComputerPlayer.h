@@ -9,13 +9,15 @@
  */
 
 #pragma once
+
 #include"../include/IPlayer.h"
 #include"../include/IBoardGame.h"
+
 /**
  * @details Mock class used for testing purposes
 */
 class MockComputerPlayer : public IPlayer {
-public:
+ public:
     /**
      * @brief Mock constructor
     */
@@ -32,9 +34,7 @@ public:
      * @param y the y position on the board
      * @param game the board itself
     */
-    void clickTile(int x, int y, std::shared_ptr<IBoardGame> game) {
-
-    }
+    void clickTile(int x, int y, std::shared_ptr<IBoardGame> game) {}
 
     /**
      * @brief Get the letter
@@ -68,14 +68,10 @@ public:
      * 
      * @param letter Used to specify letter
     */
-    void setLetter(char letter) {
-
-    }
+    void setLetter(char letter) {}
 
     /**
      * @brief Set the number of the player
     */
-    void setPlayerNum() {
-
-    }
+    void setPlayerNum() {}
 };

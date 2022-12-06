@@ -9,16 +9,18 @@
  */
 
 #pragma once
-#include "IPlayer.h"
-#include "IBoardGame.h"
+
 #include <string>
 #include <utility>
+
+#include "IPlayer.h"
+#include "IBoardGame.h"
 
  /**
   * @details Class for ComputerPlayer object
   */
 class ComputerPlayer : public IPlayer {
-public:
+ public:
     /**
      * @brief Constructor for ComputerPlayer using custom parameters
      *
@@ -80,6 +82,6 @@ public:
     */
     std::string getType();
 
-private:
+ private:
     std::string difficulty;
 };

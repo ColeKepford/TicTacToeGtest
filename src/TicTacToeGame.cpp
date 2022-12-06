@@ -8,9 +8,10 @@
  * @copyright Copyright (c) 2022
  */
 
+#include <stdexcept>
+
 #include "TicTacToeGame.h"
 #include "IPlayer.h"
-#include <stdexcept>
 
  /**
   * @brief Default constructor for TicTacToeGame
@@ -26,9 +27,7 @@ TicTacToeGame::TicTacToeGame() {
 /**
  * @brief Destructor for TicTacToeGame
 */
-TicTacToeGame::~TicTacToeGame() {
-
-}
+TicTacToeGame::~TicTacToeGame() {}
 
 /**
  * @brief Constructor with players param
@@ -66,12 +65,10 @@ TicTacToeGame::TicTacToeGame(int size,
 void TicTacToeGame::assignPlayer(std::unique_ptr<IPlayer> player) {
     if (player == nullptr) {
         throw std::invalid_argument("Null player!");
-    }
-    else if (players.first.get() == nullptr) {
+    } else if (players.first.get() == nullptr) {
         players.first = std::move(player);
         currentLetter = players.first.get()->getLetter();
-    }
-    else if (players.second.get() == nullptr) {
+    } else if (players.second.get() == nullptr) {
         players.second = std::move(player);
     }
 }
@@ -87,16 +84,13 @@ bool TicTacToeGame::modifyTile(int x, int y, char letter) {
     if (letter != 'X' && letter != 'O' && letter != 'N') {
         throw std::invalid_argument("Invalid character.");
         return false;
-    }
-    else if (x < 0 || x > 2 || y < 0 || y > 2) {
+    } else if (x < 0 || x > 2 || y < 0 || y > 2) {
         throw std::invalid_argument("Invalid coordinate.");
         return false;
-    }
-    else if (this->board[x][y] == 'N') {
+    } else if (this->board[x][y] == 'N') {
         this->board[x][y] = letter;
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -111,8 +105,7 @@ int TicTacToeGame::checkEnd() {
     if ((board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
         || (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')) {
         return 1;
-    }
-    else if ((board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
+    } else if ((board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
         || (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')) {
         return 2;
     }
@@ -123,14 +116,14 @@ int TicTacToeGame::checkEnd() {
             || (board[i][0] == 'O' && board[i][1] == 'O'
                 && board[i][2] == 'O')) {
             return 1;
-        }
-        else if ((board[0][i] == 'X' && board[1][i] == 'X'
+        } else if ((board[0][i] == 'X' && board[1][i] == 'X'
             && board[2][i] == 'X')
             || (board[i][0] == 'X' && board[i][1] == 'X'
                 && board[i][2] == 'X')) {
             return 2;
         }
     }
+
     if (turn > 8) {
         return 0;
     }
@@ -161,8 +154,7 @@ void TicTacToeGame::endTurn() {
 
     if (currentLetter == players.first->getLetter()) {
         currentLetter = players.second.get()->getLetter();
-    }
-    else {
+    } else {
         currentLetter = players.first.get()->getLetter();
     }
 }

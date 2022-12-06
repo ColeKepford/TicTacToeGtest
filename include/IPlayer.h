@@ -9,18 +9,20 @@
  */
 
 #pragma once
-#include "IBoardGame.h"
+
 #include <string>
 #include <memory>
 
- // forward declaration
+#include "IBoardGame.h"
+
+// forward declaration
 class IBoardGame;
 
 /**
  * @details Class for IPlayer object
  */
 class IPlayer {
-public:
+ public:
     char letter;
     int playerNum;
     std::string type;

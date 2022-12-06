@@ -9,6 +9,7 @@
  */
 
 #pragma once
+
 #include"../include/IPlayer.h"
 #include"../include/IBoardGame.h"
 
@@ -16,7 +17,7 @@
  * @details Mock class used for testing purposes
 */
 class MockHumanPlayer : public IPlayer {
-public:
+ public:
     int clickCounter = 0;
     /**
      * @brief Mock constructor
@@ -37,12 +38,9 @@ public:
     void clickTile(int x, int y, std::shared_ptr<IBoardGame> game) {
         if (clickCounter == 0) {
             game->modifyTile(1, 1, letter);
-        }
-        else if (clickCounter == 1) {
+        } else if (clickCounter == 1) {
             game->modifyTile(0, 1, letter);
-        }
-
-        else if (clickCounter == 2) {
+        } else if (clickCounter == 2) {
             game->modifyTile(2, 1, letter);
         }
         clickCounter++;

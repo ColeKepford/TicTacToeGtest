@@ -9,15 +9,17 @@
  */
 
 #pragma once
+
+#include <string>
+
 #include "IPlayer.h"
 #include "IBoardGame.h"
-#include <string>
 
  /**
   * @details Class for HumanPlayer object
   */
 class HumanPlayer : public IPlayer {
-public:
+ public:
     /**
      * @brief Default constructor for HumanPlayer
     */

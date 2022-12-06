@@ -9,21 +9,19 @@
  */
 
 #include <string>
-#include "pch.h"
 #include "../include/HumanPlayer.h"
 #include "MockTicTacToeGame.h"
+#include "pch.h"
 
 /**
  * @details Tests for HumanPlayer class
 */
 class HumanPlayerTests :public::testing::Test {
-protected:
+ protected:
     HumanPlayer player;
-    void SetUp() override {
-    }
+    void SetUp() override {}
 
-    void TearDown() override {
-    }
+    void TearDown() override {}
 };
 
 /**
