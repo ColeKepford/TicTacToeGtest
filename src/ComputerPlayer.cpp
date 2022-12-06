@@ -82,7 +82,7 @@ std::pair<int, int> ComputerPlayer::generateMove(IBoardGame* game) {
             }
         }
         // Generate random possible move
-        int moveIndex = rand_r() % moves.size();
+        int moveIndex = rand() % moves.size();
         return moves[moveIndex];
     }
     return std::pair<int, int>(-1, -1);
