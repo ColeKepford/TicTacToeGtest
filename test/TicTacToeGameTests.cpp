@@ -16,7 +16,7 @@
 #include "../include/TicTacToeGame.h"
 #include"MockHumanPlayer.h"
 #include"MockComputerPlayer.h"
-#include "pch.h"
+#include "./pch.h"
 
 /**
  * @details Tests for TicTacToeGameTests class

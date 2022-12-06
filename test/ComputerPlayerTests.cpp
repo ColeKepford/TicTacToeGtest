@@ -9,11 +9,13 @@
  */
 
 #include <string>
+#include <memory>
+#include <utility>
 
 #include "../include/TicTacToeGame.h"
 #include "../include/ComputerPlayer.h"
 #include "MockTicTacToeGame.h"
-#include "pch.h"
+#include "./pch.h"
 
 /**
  * @details Tests for ComputerPlayer class
@@ -155,12 +157,12 @@ TEST_F(ComputerPlayerTests, testGetMethods) {
  * @param testGenerateMoveEmptyBoard name of the test
 */
 TEST_F(ComputerPlayerTests, testGenerateMoveEmptyBoard) {
-    
     player = ComputerPlayer('X', 1, "easy");
     MockTicTacToeGame* game2 = new MockTicTacToeGame();
     std::pair<int, int> move = player.generateMove(game2);
     bool inRange = false;
-    if (move.first >= 0 && move.first <= 2 && move.second >= 0 && move.second <= 2) {
+    if (move.first >= 0 && move.first <= 2 &&
+        move.second >= 0 && move.second <= 2) {
         inRange = true;
     }
     EXPECT_EQ(true, inRange);

@@ -13,7 +13,7 @@
 
 #include "../include/HumanPlayer.h"
 #include "MockTicTacToeGame.h"
-#include "pch.h"
+#include "./pch.h"
 
 /**
  * @details Tests for HumanPlayer class

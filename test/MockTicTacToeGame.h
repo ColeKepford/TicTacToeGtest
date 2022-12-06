@@ -21,7 +21,7 @@
 */
 class MockTicTacToeGame : public IBoardGame {
  public:
-	std::vector<std::vector<char>> board;
+    std::vector<std::vector<char>> board;
 
     /**
      * @brief Mock constructor
@@ -46,7 +46,7 @@ class MockTicTacToeGame : public IBoardGame {
     int checkEnd() {
         return -5;
     }
-    
+
     /**
      * @brief Create a board given a size
      * 

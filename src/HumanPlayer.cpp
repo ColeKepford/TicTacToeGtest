@@ -12,6 +12,7 @@
 #include <stdexcept>
 #include <memory>
 #include <utility>
+#include <string>
 
 #include "HumanPlayer.h"
 

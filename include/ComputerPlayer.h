@@ -12,6 +12,7 @@
 
 #include <string>
 #include <utility>
+#include <memory>
 
 #include "IPlayer.h"
 #include "IBoardGame.h"
