@@ -1,9 +1,9 @@
 /**
  * @file HumanPlayer.cpp
- * @author Adam Schlinker (adam.schlinker@uleth.ca)
+ * @author Adam Schlinker and Cole Kepford
  * @brief Source code for HumanPlayer class.
- * @version 0.1
- * @date 2022-11-22
+ * @version 1.0
+ * @date 2022-12-05
  *
  * @copyright Copyright (c) 2022
  *

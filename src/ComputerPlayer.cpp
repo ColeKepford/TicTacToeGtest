@@ -1,9 +1,9 @@
 /**
- * @file
- * @author
- * @brief
- * @version
- * @date
+ * @file ComputerPlayer.cpp
+ * @author Cole Kepford
+ * @brief Implementation of the ComputerPlayer class
+ * @version 1.0
+ * @date 2022-12-05
  *
  * @copyright Copyright (c) 2022
  */

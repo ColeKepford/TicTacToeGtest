@@ -1,9 +1,9 @@
 /**
- * @file
- * @author
- * @brief
- * @version
- * @date
+ * @file TicTacToeGame.cpp
+ * @author Cole Kepford
+ * @brief Class for a computer player in a board game
+ * @version 1.0
+ * @date 2022-12-05
  *
  * @copyright Copyright (c) 2022
  */
