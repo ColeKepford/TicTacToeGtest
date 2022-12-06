@@ -10,6 +10,9 @@
 
 #pragma once
 
+#include <string>
+#include <memory>
+
 #include"../include/IPlayer.h"
 #include"../include/IBoardGame.h"
 

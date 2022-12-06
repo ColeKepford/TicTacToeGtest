@@ -9,6 +9,9 @@
  */
 
 #include <stdexcept>
+#include <vector>
+#include <memory>
+#include <utility>
 
 #include "TicTacToeGame.h"
 #include "IPlayer.h"
@@ -34,7 +37,8 @@ TicTacToeGame::~TicTacToeGame() {}
  *
  * @param i_players The players we have
 */
-TicTacToeGame::TicTacToeGame(std::pair<std::unique_ptr<IPlayer>, std::unique_ptr<IPlayer>> i_players) {
+TicTacToeGame::TicTacToeGame(std::pair<std::unique_ptr<IPlayer>,
+    std::unique_ptr<IPlayer>> i_players) {
     turn = 0;
     players.first = std::move(i_players.first);
     players.second = std::move(i_players.second);
@@ -214,7 +218,8 @@ void TicTacToeGame::setBoard(std::vector<std::vector<char>> board) {
  *
  * @param i_player The players we have
 */
-void TicTacToeGame::setPlayers(std::pair<std::unique_ptr<IPlayer>, std::unique_ptr<IPlayer>> i_Players) {
+void TicTacToeGame::setPlayers(std::pair<std::unique_ptr<IPlayer>,
+    std::unique_ptr<IPlayer>> i_Players) {
     players.first = std::move(i_Players.first);
     players.second = std::move(i_Players.second);
 }

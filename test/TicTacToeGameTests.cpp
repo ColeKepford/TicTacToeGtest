@@ -9,6 +9,9 @@
  */
 
 #include <memory>
+#include <vector>
+#include <string>
+#include <utility>
 
 #include "../include/TicTacToeGame.h"
 #include"MockHumanPlayer.h"
@@ -173,7 +176,7 @@ TEST_F(GameTests, testCheckEndOverWithDrawFullBoard) {
     for (int i = 0; i < 9; i++) {
         game.get()->endTurn();
     }
-    
+
     EXPECT_EQ(0, game.get()->checkEnd());
 }
 

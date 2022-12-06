@@ -8,12 +8,14 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "ComputerPlayer.h"
-
 #include <list>
 #include <vector>
 #include <stdexcept>
+#include <string>
+#include <memory>
+#include <utility>
 
+#include "ComputerPlayer.h"
 
  /**
   * @brief Implemented constructor for ComputerPlayer using custom parameters

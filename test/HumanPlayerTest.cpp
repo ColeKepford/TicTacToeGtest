@@ -9,6 +9,8 @@
  */
 
 #include <string>
+#include <memory>
+
 #include "../include/HumanPlayer.h"
 #include "MockTicTacToeGame.h"
 #include "pch.h"

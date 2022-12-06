@@ -10,6 +10,9 @@
 
 #pragma once
 
+#include <string>
+#include <memory>
+
 #include"../include/IPlayer.h"
 #include"../include/IBoardGame.h"
 
@@ -78,14 +81,10 @@ class MockHumanPlayer : public IPlayer {
      * 
      * @param letter Used to specify letter
     */
-    void setLetter(char letter) {
-
-    }
+    void setLetter(char letter) {}
 
     /**
      * @brief Set the number of the player
     */
-    void setPlayerNum() {
-
-    }
+    void setPlayerNum() {}
 };

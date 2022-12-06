@@ -10,6 +10,8 @@
  */
 
 #include <stdexcept>
+#include <memory>
+#include <utility>
 
 #include "HumanPlayer.h"
 
@@ -23,9 +25,7 @@ HumanPlayer::HumanPlayer() {
 /**
  * @brief Implemented destructor
 */
-HumanPlayer::~HumanPlayer() {
-
-}
+HumanPlayer::~HumanPlayer() {}
 
 /**
  * @brief Implemented constructor for HumanPlayer using custom parameters

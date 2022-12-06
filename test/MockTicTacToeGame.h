@@ -10,6 +10,10 @@
 
 #pragma once
 
+#include <vector>
+#include <memory>
+#include <utility>
+
 #include "../include/IBoardGame.h"
 
 /**
@@ -121,5 +125,6 @@ class MockTicTacToeGame : public IBoardGame {
      * 
      * @param i_players The current players
     */
-    void setPlayers(std::pair<std::unique_ptr<IPlayer>, std::unique_ptr<IPlayer>> i_players) {}
+    void setPlayers(std::pair<std::unique_ptr<IPlayer>,
+        std::unique_ptr<IPlayer>> i_players) {}
 };

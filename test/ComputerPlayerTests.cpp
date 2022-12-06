@@ -174,7 +174,6 @@ TEST_F(ComputerPlayerTests, testGenerateMoveEmptyBoard) {
  * @param testGenerateMoveTopRowFull name of the test
 */
 TEST_F(ComputerPlayerTests, testGenerateMoveTopRowFull) {
-
     player = ComputerPlayer('X', 1, "easy");
     MockTicTacToeGame* game2 = new MockTicTacToeGame();
     game2->board[0][0] = 'X';
@@ -196,7 +195,6 @@ TEST_F(ComputerPlayerTests, testGenerateMoveTopRowFull) {
  * @param testGenerateMoveMiddleRowFull name of the test
 */
 TEST_F(ComputerPlayerTests, testGenerateMoveMiddleRowFull) {
-
     player = ComputerPlayer('X', 1, "easy");
     MockTicTacToeGame* game2 = new MockTicTacToeGame();
     game2->board[1][0] = 'X';
@@ -218,7 +216,6 @@ TEST_F(ComputerPlayerTests, testGenerateMoveMiddleRowFull) {
  * @param testGenerateMoveBottomRowFull name of the test
 */
 TEST_F(ComputerPlayerTests, testGenerateMoveBottomRowFull) {
-
     player = ComputerPlayer('X', 1, "easy");
     MockTicTacToeGame* game2 = new MockTicTacToeGame();
     game2->board[2][0] = 'X';
@@ -240,7 +237,6 @@ TEST_F(ComputerPlayerTests, testGenerateMoveBottomRowFull) {
  * @param testGenerateMoveMiddleColumnFull name of the test
 */
 TEST_F(ComputerPlayerTests, testGenerateMoveMiddleColumnFull) {
-
     player = ComputerPlayer('X', 1, "easy");
     MockTicTacToeGame* game2 = new MockTicTacToeGame();
     game2->board[0][1] = 'X';
