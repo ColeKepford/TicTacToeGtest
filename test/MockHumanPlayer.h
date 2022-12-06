@@ -12,7 +12,7 @@ public:
     }
 
 
-    void clickTile(int x, int y, IBoardGame* game) {
+    void clickTile(int x, int y, std::shared_ptr<IBoardGame> game) {
         if (clickCounter == 0) {
             game->modifyTile(1, 1, letter);
         }

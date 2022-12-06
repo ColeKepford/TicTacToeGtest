@@ -9,12 +9,12 @@ public:
     type = "computer";
     }
 
-    void clickTile(int x, int y, IBoardGame* game) {
+    void clickTile(int x, int y, std::shared_ptr<IBoardGame> game) {
 
     }
 
     char getLetter() {
-        return 'N';
+        return letter;
     }
 
     int getPlayerNum() {
