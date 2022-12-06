@@ -8,15 +8,15 @@
  * @copyright Copyright (c) 2022
  */
 
+// test
+
+#include "ComputerPlayer.h"
 #include <list>
 #include <vector>
 #include <stdexcept>
-#include <string>
-#include <memory>
 #include <utility>
-#include <cstdlib>
-
-#include "ComputerPlayer.h"
+#include <memory>
+#include <string>
 
  /**
   * @brief Implemented constructor for ComputerPlayer using custom parameters
@@ -82,7 +82,7 @@ std::pair<int, int> ComputerPlayer::generateMove(IBoardGame* game) {
             }
         }
         // Generate random possible move
-        int moveIndex = rand() % moves.size();
+        int moveIndex = std::rand() % moves.size();
         return moves[moveIndex];
     }
     return std::pair<int, int>(-1, -1);
