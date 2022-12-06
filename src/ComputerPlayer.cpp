@@ -14,6 +14,7 @@
 #include <string>
 #include <memory>
 #include <utility>
+#include <cstdlib>
 
 #include "ComputerPlayer.h"
 
@@ -81,7 +82,7 @@ std::pair<int, int> ComputerPlayer::generateMove(IBoardGame* game) {
             }
         }
         // Generate random possible move
-        int moveIndex = rand() % moves.size();
+        int moveIndex = rand_r() % moves.size();
         return moves[moveIndex];
     }
     return std::pair<int, int>(-1, -1);
